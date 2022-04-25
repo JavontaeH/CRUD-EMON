@@ -1,6 +1,30 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState } from "react";
+import { ApplicationViews } from "./ApplicationViews";
 
-function App() {}
+const PokeApp = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    sessionStorage.getItem("nutshell_user") !== null
+  );
 
-export default App;
+  const setAuthUser = (user) => {
+    sessionStorage.setItem("nutshell_user", JSON.stringify(user));
+    setIsAuthenticated(sessionStorage.getItem("nutshell_user") !== null);
+  };
+
+  const clearUser = () => {
+    sessionStorage.clear();
+    setIsAuthenticated(sessionStorage.getItem("nutshell_user") !== null);
+  };
+
+  return (
+    <>
+      <ApplicationViews
+        setAuthUser={setAuthUser}
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
+      />
+    </>
+  );
+};
+
+export default PokeApp;
