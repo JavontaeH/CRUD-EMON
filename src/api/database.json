@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Ash",
-      "Email": "ashketchum@gmail.com"
+      "Email": "ashketchum@kanto.com"
     }
   ],
   "pokemon": [
@@ -13,7 +13,7 @@
       "name": "Ash's Ember",
       "img": "",
       "gif": "",
-      "type": ""
+      "type": "fire"
     }
   ],
   "attacks": [
