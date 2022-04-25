@@ -7,6 +7,8 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
   //     return isAuthenticated ? <Outlet /> : <Navigate to="" />;
   //   };
 
+  console.log(isAuthenticated);
+
   return (
     <>
       <Routes>

@@ -15,7 +15,7 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
           <div className="button-wrapper">
             <div className="button-wrapper-content">
               <h1>Battle Monsters</h1>
-              <div className="top-menu-buttons">
+              <div className="menu-buttons">
                 <div className="menu-button">
                   <div className="button-img-container">
                     <img
@@ -31,17 +31,17 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
                     <img
                       className="button-icon"
                       src={logoutIcon}
-                      alt="Box Icon"
+                      alt="Logout Icon"
                     />
                   </div>
                   Logout
                 </div>
-              </div>
-              <div className="menu-button">
-                <div className="button-img-container">
-                  <img className="button-icon" src={boxIcon} alt="Box Icon" />
+                <div className="menu-button">
+                  <div className="button-img-container">
+                    <img className="button-icon" src={boxIcon} alt="Box Icon" />
+                  </div>
+                  Box
                 </div>
-                Box
               </div>
             </div>
           </div>
@@ -61,14 +61,31 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
             <div className="button-wrapper-content">
               <h1>Battle Monsters</h1>
               <div className="menu-buttons">
-                <div className="login-button">
-                  <button>Login</button>
+                <div className="menu-button">
+                  <div className="button-img-container">
+                    <img
+                      className="button-icon"
+                      src={loginIcon}
+                      alt="Login Icon"
+                    />
+                  </div>
+                  Login
                 </div>
-                <div className="register-button">
-                  <button>Register</button>
+                <div className="menu-button">
+                  <div className="button-img-container">
+                    <img
+                      className="button-icon"
+                      src={registerIcon}
+                      alt="Register Icon"
+                    />
+                  </div>
+                  Register
                 </div>
-                <div className="box-button">
-                  <button>Box</button>
+                <div className="menu-button">
+                  <div className="button-img-container">
+                    <img className="button-icon" src={boxIcon} alt="Box Icon" />
+                  </div>
+                  Box
                 </div>
               </div>
             </div>

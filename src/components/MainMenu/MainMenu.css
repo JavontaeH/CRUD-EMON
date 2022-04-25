@@ -29,12 +29,15 @@ body {
 }
 
 
-.top-menu-buttons {
+.menu-buttons {
     display:flex;
     justify-content: space-between;
     
 }
 
+.menu-buttons :hover {
+    filter: drop-shadow(0 0 0.2rem yellow);
+}
 
 .menu-button {
     color: white;
@@ -53,4 +56,5 @@ body {
     margin-bottom: 1em;
     border-radius: 10px;
     filter: drop-shadow(0 0 0.15rem black);
+    pointer-events: none;
 }
