@@ -9,11 +9,31 @@ body {
 
 .background-image {
     width: 100%;
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 
 .button-wrapper {
     position: absolute;
+    background-color:rgba(0, 0, 0, 0.6);
+    top: 33%;
+    left: 33%;
+    padding: 5em
+}
+
+.button-wrapper-content {
+    color: white;
+}
+
+.button-wrapper-content button {
+    color: white;
+    background-color:#09497A;
+    cursor: pointer;
+    padding: 2em;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 0 black);
+}
+
+.menu-buttons {
+    display:flex;
+    justify-content: space-between;
+    
 }

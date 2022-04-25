@@ -10,7 +10,15 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
   return (
     <>
       <Routes>
-        <Route path="" element={<MainMenu />} />
+        <Route
+          path=""
+          element={
+            <MainMenu
+              isAuthenticated={isAuthenticated}
+              setAuthUser={setAuthUser}
+            />
+          }
+        />
       </Routes>
     </>
   );
