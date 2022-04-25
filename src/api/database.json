@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ash",
+      "Email": "ashketchum@gmail.com"
+    }
+  ],
+  "pokemon": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Ash's Ember",
+      "img": "",
+      "gif": "",
+      "type": ""
+    }
+  ],
+  "attacks": [
+    {
+      "id": 1,
+      "name": "tackle",
+      "type": "normal",
+      "damage": 10
+    }
+  ],
+  "pokemonAttacks": [
+    {
+      "id": 1,
+      "pokemonId": 1,
+      "attackId": 1
+    }
+  ]
+}
