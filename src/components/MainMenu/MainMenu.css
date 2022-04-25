@@ -4,6 +4,8 @@ body {
 
 .page-wrapper {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -12,10 +14,13 @@ body {
 }
 
 .button-wrapper {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    min-width: 50%;
+    min-height: 50%;
     position: absolute;
     background-color:rgba(0, 0, 0, 0.6);
-    top: 33%;
-    left: 33%;
     padding: 5em
 }
 
@@ -23,17 +28,28 @@ body {
     color: white;
 }
 
-.button-wrapper-content button {
+
+.top-menu-buttons {
+    display:flex;
+    justify-content: space-between;
+    
+}
+
+
+.menu-button {
     color: white;
     background-color:#09497A;
     cursor: pointer;
     padding: 2em;
     border-radius: 10px;
-    filter: drop-shadow(0 0 0 black);
+    filter: drop-shadow(0 0 0.2rem black);
 }
 
-.menu-buttons {
+.button-img-container {
     display:flex;
-    justify-content: space-between;
-    
+    justify-content: center;
+    background-color: #2D495F;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 0.15rem black);
 }
