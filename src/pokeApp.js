@@ -22,6 +22,7 @@ const PokeApp = () => {
         setAuthUser={setAuthUser}
         isAuthenticated={isAuthenticated}
         setIsAuthenticated={setIsAuthenticated}
+        clearUser={clearUser}
       />
     </>
   );
