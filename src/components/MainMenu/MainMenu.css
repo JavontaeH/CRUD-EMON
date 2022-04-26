@@ -28,6 +28,10 @@ body {
     color: white;
 }
 
+.menu-title {
+    text-align: center;
+}
+
 
 .top-menu-buttons {
     display:flex;
@@ -36,7 +40,7 @@ body {
 
 .bottom-menu-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .top-menu-buttons :hover {
@@ -48,6 +52,10 @@ body {
 }
 
 .menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     color: white;
     background-color:#09497A;
     cursor: pointer;
@@ -58,6 +66,10 @@ body {
     width: 500px;
 }
 
+.button-text {
+    pointer-events: none;
+}
+
 .button-img-container {
     display:flex;
     justify-content: center;
@@ -66,4 +78,9 @@ body {
     border-radius: 10px;
     filter: drop-shadow(0 0 0.15rem black);
     pointer-events: none;
+}
+
+.button-img-container img {
+    height: 75px;
+    width: auto;
 }

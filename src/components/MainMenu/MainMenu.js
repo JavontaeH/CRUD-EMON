@@ -14,7 +14,7 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
         <div className="page-wrapper">
           <div className="button-wrapper">
             <div className="button-wrapper-content">
-              <h1>Battle Monsters</h1>
+              <h1 className="menu-title">Battle Monsters</h1>
               <div className="top-menu-buttons">
                 <div className="menu-button">
                   <div className="button-img-container">
