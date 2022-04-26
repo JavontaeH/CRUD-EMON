@@ -36,6 +36,7 @@ h3 img {
 .pokemon-frame {
     display:flex;
     justify-content: center;
+    
     width: 100%;
     background-color: #BED7F3;
     border-style: solid;

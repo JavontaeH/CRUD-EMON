@@ -1,27 +1,26 @@
 body {
-    overflow: hidden;
 }
 
 .page-wrapper {
     position: relative;
-    display: flex;
-    justify-content: center;
 }
 
 
 .background-image {
-    width: 100%;
+    width: auto;
+    height: 100%;
 }
 
 .button-wrapper {
-    margin-top: 5%;
     display: flex;
     justify-content: center;
+    margin-top: 2.5%;
     min-width: 50%;
     min-height: 50%;
     position: absolute;
     background-color:rgba(0, 0, 0, 0.6);
-    padding: 5em
+    padding: 2em;
+    left: 10%;
 }
 
 .button-wrapper-content {
