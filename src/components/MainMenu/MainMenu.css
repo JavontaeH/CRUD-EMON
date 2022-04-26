@@ -29,13 +29,21 @@ body {
 }
 
 
-.menu-buttons {
+.top-menu-buttons {
     display:flex;
-    justify-content: space-between;
-    
+    justify-content: space-between; 
 }
 
-.menu-buttons :hover {
+.bottom-menu-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-menu-buttons :hover {
+    filter: drop-shadow(0 0 0.2rem yellow);
+}
+
+.bottom-menu-buttons :hover {
     filter: drop-shadow(0 0 0.2rem yellow);
 }
 
@@ -47,6 +55,7 @@ body {
     margin: 1em;
     border-radius: 10px;
     filter: drop-shadow(0 0 0.2rem black);
+    width: 500px;
 }
 
 .button-img-container {

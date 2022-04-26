@@ -15,7 +15,7 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
           <div className="button-wrapper">
             <div className="button-wrapper-content">
               <h1>Battle Monsters</h1>
-              <div className="menu-buttons">
+              <div className="top-menu-buttons">
                 <div className="menu-button">
                   <div className="button-img-container">
                     <img
@@ -36,6 +36,8 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
                   </div>
                   Logout
                 </div>
+              </div>
+              <div className="bottom-menu-buttons">
                 <div className="menu-button">
                   <div className="button-img-container">
                     <img className="button-icon" src={boxIcon} alt="Box Icon" />
