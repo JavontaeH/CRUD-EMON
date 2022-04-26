@@ -11,9 +11,9 @@
       "id": 1,
       "userId": 1,
       "name": "Ember",
-      "frontImg": "../images/pokemon/local-mon/ember/front.png",
-      "backImg": "../images/pokemon/local-mon/ember/back.png",
-      "type": "fire"
+      "frontImg": "../../images/pokemon/local-mon/ember/front.png",
+      "backImg": "../../images/pokemon/local-mon/ember/back.png",
+      "type": "Fire"
     }
   ],
   "attacks": [

@@ -14,8 +14,6 @@ export const ApplicationViews = ({
     return isAuthenticated ? <Outlet /> : <Navigate to="/home" />;
   };
 
-  console.log(isAuthenticated);
-
   return (
     <>
       <Routes>

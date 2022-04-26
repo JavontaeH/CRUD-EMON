@@ -7,7 +7,7 @@ const PokeApp = () => {
   );
 
   const setAuthUser = (user) => {
-    sessionStorage.setItem("nutshell_user", JSON.stringify(user));
+    sessionStorage.setItem("poke_user", JSON.stringify(user));
     setIsAuthenticated(sessionStorage.getItem("nutshell_user") !== null);
   };
 

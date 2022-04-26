@@ -1,11 +1,5 @@
 import React from "react";
 import Navigate, { useNavigate } from "react-router-dom";
-import imageBg from "../../images/menu/townBg-effects.png";
-import playIcon from "../../images/menu/playPic.png";
-import boxIcon from "../../images/menu/boxIcon.png";
-import logoutIcon from "../../images/menu/logoutIcon.png";
-import loginIcon from "../../images/menu/loginIcon.png";
-import registerIcon from "../../images/menu/registerIcon.png";
 import "./MainMenu.css";
 
 export const MainMenu = ({ isAuthenticated, clearUser }) => {
@@ -31,7 +25,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
                   <div className="button-img-container">
                     <img
                       className="button-icon"
-                      src={playIcon}
+                      src="images/menu/playPic.png"
                       alt="Play Icon"
                     />
                   </div>
@@ -41,7 +35,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
                   <div className="button-img-container">
                     <img
                       className="button-icon"
-                      src={logoutIcon}
+                      src="images/menu/logoutIcon.png"
                       alt="Logout Icon"
                     />
                   </div>
@@ -51,7 +45,11 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
               <div className="bottom-menu-buttons">
                 <div className="menu-button" onClick={() => navigate("/box")}>
                   <div className="button-img-container">
-                    <img className="button-icon" src={boxIcon} alt="Box Icon" />
+                    <img
+                      className="button-icon"
+                      src="images/menu/boxIcon.png"
+                      alt="Box Icon"
+                    />
                   </div>
                   Box
                 </div>
@@ -73,7 +71,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
                   <div className="button-img-container">
                     <img
                       className="button-icon"
-                      src={loginIcon}
+                      src="images/menu/loginIcon.png"
                       alt="Login Icon"
                     />
                   </div>
@@ -86,7 +84,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
                   <div className="button-img-container">
                     <img
                       className="button-icon"
-                      src={registerIcon}
+                      src="images/menu/registerIcon.png"
                       alt="Register Icon"
                     />
                   </div>
@@ -96,7 +94,11 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
               <div className="bottom-menu-buttons">
                 <div className="menu-button" onClick={() => navigate("/box")}>
                   <div className="button-img-container">
-                    <img className="button-icon" src={boxIcon} alt="Box Icon" />
+                    <img
+                      className="button-icon"
+                      src="images/menu/boxIcon.png"
+                      alt="Box Icon"
+                    />
                   </div>
                   <div className="button-text">Box</div>
                 </div>

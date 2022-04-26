@@ -6,7 +6,7 @@ body {
     width: 1920px;
     height: 1080px;
     position: relative;
-    background-image: url(../../images/menu/townBg-effects.png);
+    /* background-image: url("/images/menu/townBg-effects.png"); */
     background-repeat: no-repeat;
     background-size: 80%;
 }
@@ -21,7 +21,7 @@ body {
     min-width: 50%;
     min-height: 50%;
     position: absolute;
-    background-color:rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 2em;
     left: 10%;
 }
@@ -37,8 +37,8 @@ body {
 
 
 .top-menu-buttons {
-    display:flex;
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
 }
 
 .bottom-menu-buttons {
@@ -60,7 +60,7 @@ body {
     align-items: center;
     flex-direction: column;
     color: white;
-    background-color:#09497A;
+    background-color: #09497A;
     cursor: pointer;
     padding: 2em;
     margin: 1em;
@@ -75,7 +75,7 @@ body {
 }
 
 .button-img-container {
-    display:flex;
+    display: flex;
     height: 100px;
     width: 120px;
     padding: 0.5em;
