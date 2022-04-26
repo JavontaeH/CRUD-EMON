@@ -1,0 +1,51 @@
+.page-wrapper {
+    position: relative;
+    background-color: #F8E7DF;
+    width: 1920px;
+    height: 1080px;
+}
+
+h3 {
+    margin: 0;
+    padding : 0.5em;
+    color:white;
+    filter: drop-shadow(0 0 0.15rem black);
+    size: 12rem;
+}
+h3 img {
+    width: 50px;
+}
+
+.selected-wrapper {
+    position: absolute;
+    left: 0%;
+    width: 15%;
+    height: 100%;
+}
+
+.selected-top-box {
+    display:flex;
+    justify-content: center;
+    height: 20%;
+    background-color: #707078;
+    border-style: solid;
+    border-color: #505058;
+    padding: 0.5em;
+}
+
+.pokemon-frame {
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #BED7F3;
+    border-style: solid;
+    border-color: #9C9CAE;
+}
+
+.selected-bottom-box {
+    height: 80%;
+    background-color: #9090A8;
+    border-style: solid;
+    border-top: none !important;
+    border-color: #505058;
+}
