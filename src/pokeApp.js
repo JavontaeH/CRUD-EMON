@@ -3,17 +3,17 @@ import { ApplicationViews } from "./ApplicationViews";
 
 const PokeApp = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    sessionStorage.getItem("nutshell_user") !== null
+    sessionStorage.getItem("poke_user") !== null
   );
 
   const setAuthUser = (user) => {
     sessionStorage.setItem("poke_user", JSON.stringify(user));
-    setIsAuthenticated(sessionStorage.getItem("nutshell_user") !== null);
+    setIsAuthenticated(sessionStorage.getItem("poke_user") !== null);
   };
 
   const clearUser = () => {
     sessionStorage.clear();
-    setIsAuthenticated(sessionStorage.getItem("nutshell_user") !== null);
+    setIsAuthenticated(sessionStorage.getItem("poke_user") !== null);
   };
 
   return (

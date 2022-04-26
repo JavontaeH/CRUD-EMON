@@ -7,7 +7,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
 
   const handleLogout = () => {
     clearUser();
-    navigate("/home");
+    navigate("/menu");
   };
 
   if (isAuthenticated) {

@@ -26,9 +26,9 @@ export const Login = ({ setAuthUser }) => {
 
     existingUserCheck().then((exists) => {
       if (exists) {
-        // The user id is saved under the key nutshell_user in session Storage. Change below if needed!
+        // The user id is saved under the key poke_user in session Storage. Change below if needed!
         setAuthUser(exists.id);
-        navigate("/home");
+        navigate("/menu");
       } else {
         setExistDialog(true);
       }

@@ -6,7 +6,7 @@ body {
     width: 1920px;
     height: 1080px;
     position: relative;
-    /* background-image: url("/images/menu/townBg-effects.png"); */
+    background-image: url(../../../public/images/menu/townBg-effects.png);
     background-repeat: no-repeat;
     background-size: 80%;
 }

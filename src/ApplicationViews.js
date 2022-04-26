@@ -11,7 +11,7 @@ export const ApplicationViews = ({
   clearUser,
 }) => {
   const PrivateOutlet = () => {
-    return isAuthenticated ? <Outlet /> : <Navigate to="/home" />;
+    return isAuthenticated ? <Outlet /> : <Navigate to="/menu" />;
   };
 
   return (
