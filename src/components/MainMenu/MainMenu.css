@@ -30,6 +30,7 @@ body {
 
 .menu-title {
     text-align: center;
+    filter: drop-shadow(0 0 0.5rem black);
 }
 
 
@@ -68,6 +69,7 @@ body {
 
 .button-text {
     pointer-events: none;
+    filter: drop-shadow(0 0 0.2rem black);
 }
 
 .button-img-container {

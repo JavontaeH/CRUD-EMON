@@ -24,7 +24,7 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
                       alt="Play Icon"
                     />
                   </div>
-                  Play
+                  <div className="button-text">Play</div>
                 </div>
                 <div className="menu-button">
                   <div className="button-img-container">
@@ -71,7 +71,7 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
                       alt="Login Icon"
                     />
                   </div>
-                  Login
+                  <div className="button-text">Login</div>
                 </div>
                 <div className="menu-button">
                   <div className="button-img-container">
@@ -81,7 +81,7 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
                       alt="Register Icon"
                     />
                   </div>
-                  Register
+                  <div className="button-text">Register</div>
                 </div>
               </div>
               <div className="bottom-menu-buttons">
@@ -89,7 +89,7 @@ export const MainMenu = ({ isAuthenticated, setAuthUser }) => {
                   <div className="button-img-container">
                     <img className="button-icon" src={boxIcon} alt="Box Icon" />
                   </div>
-                  Box
+                  <div className="button-text">Box</div>
                 </div>
               </div>
             </div>
