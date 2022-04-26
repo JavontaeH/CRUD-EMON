@@ -14,7 +14,7 @@ body {
 }
 
 .button-wrapper {
-    margin-top: 10%;
+    margin-top: 5%;
     display: flex;
     justify-content: center;
     min-width: 50%;
@@ -74,9 +74,12 @@ body {
 
 .button-img-container {
     display:flex;
+    height: 100px;
+    width: 120px;
+    padding: 0.5em;
     justify-content: center;
     background-color: #2D495F;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     border-radius: 10px;
     filter: drop-shadow(0 0 0.15rem black);
     pointer-events: none;
