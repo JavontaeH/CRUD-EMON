@@ -1,15 +1,18 @@
 body {
+    overflow: hidden;
 }
 
-.page-wrapper {
+.menu-page-wrapper {
+    width: 1920px;
+    height: 1080px;
     position: relative;
+    background-image: url(../../images/menu/townBg-effects.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
 }
 
 
-.background-image {
-    width: auto;
-    height: 100%;
-}
+
 
 .button-wrapper {
     display: flex;

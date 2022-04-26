@@ -19,16 +19,15 @@ export const ApplicationViews = ({
   return (
     <>
       <Routes>
-        <Route path="/" element={<PrivateOutlet />}>
-          <Route path="box" element={<Box />} />
-        </Route>
+        <Route path="/" element={<PrivateOutlet />}></Route>
 
         <Route
-          path="/home"
+          path="/menu"
           element={
             <MainMenu isAuthenticated={isAuthenticated} clearUser={clearUser} />
           }
         />
+        <Route path="/box" element={<Box />} />
         <Route path="/login" element={<Login setAuthUser={setAuthUser} />} />
         <Route path="/register" element={<Register />} />
       </Routes>

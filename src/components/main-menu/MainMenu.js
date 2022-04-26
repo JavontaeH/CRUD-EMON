@@ -19,7 +19,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
   if (isAuthenticated) {
     return (
       <>
-        <div className="page-wrapper">
+        <div className="menu-page-wrapper">
           <div className="button-wrapper">
             <div className="button-wrapper-content">
               <h1 className="menu-title">Battle Monsters</h1>
@@ -58,18 +58,13 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
               </div>
             </div>
           </div>
-          <img
-            className="background-image"
-            src={imageBg}
-            alt="town background"
-          />
         </div>
       </>
     );
   } else
     return (
       <>
-        <div className="page-wrapper">
+        <div className="menu-page-wrapper">
           <div className="button-wrapper">
             <div className="button-wrapper-content">
               <h1 className="menu-title">Battle Monsters</h1>
@@ -108,11 +103,6 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
               </div>
             </div>
           </div>
-          <img
-            className="background-image"
-            src={imageBg}
-            alt="town background"
-          />
         </div>
       </>
     );

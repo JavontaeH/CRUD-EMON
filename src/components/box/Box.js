@@ -13,7 +13,7 @@ export const Box = () => {
 
   return (
     <>
-      <div className="page-wrapper">
+      <div className="box-page-wrapper">
         <div className="selected-wrapper">
           <div className="selected-top-box">
             <div className="pokemon-frame">

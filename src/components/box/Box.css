@@ -1,4 +1,4 @@
-.page-wrapper {
+.box-page-wrapper {
     position: relative;
     background-color: #F8E7DF;
     width: 1920px;
@@ -36,7 +36,7 @@ h3 img {
 .pokemon-frame {
     display:flex;
     justify-content: center;
-    
+
     width: 100%;
     background-color: #BED7F3;
     border-style: solid;
