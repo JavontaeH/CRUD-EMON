@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Box.css";
+import "./Selected.css";
+import "./BoxDisplay.css";
 
 export const Box = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -7,7 +8,7 @@ export const Box = () => {
   const userId = parseInt(sessionStorage.getItem("poke_user"));
 
   useEffect(() => {
-    const tempPokemon = {
+    const ember = {
       id: 1,
       userId: 1,
       name: "Ember",
@@ -15,7 +16,7 @@ export const Box = () => {
       backImg: "/images/pokemon/local-mon/ember/back.png",
       type: "Fire",
     };
-    setSelectedPokemon(tempPokemon);
+    setSelectedPokemon(ember);
   }, []);
 
   return (
@@ -34,7 +35,7 @@ export const Box = () => {
               </div>
               <div className="selected-bottom-box">
                 <div className="pokemon-info">
-                  <h3>No:{selectedPokemon?.id}</h3>
+                  <h3 className="pokemon-No">No:{selectedPokemon?.id}</h3>
                   <h3>Name:{selectedPokemon?.name}</h3>
                   <h3 className="selected-pokemon-type-img">
                     Type:
@@ -47,8 +48,12 @@ export const Box = () => {
                 <div className="pokemon-info-buttons">
                   {userId === selectedPokemon.userId ? (
                     <>
-                      <div className="edit-button">Edit</div>
-                      <div className="delete-button">Delete</div>
+                      <div className="edit-button">
+                        <h3>Edit</h3>
+                      </div>
+                      <div className="delete-button">
+                        <h3>Delete</h3>
+                      </div>
                     </>
                   ) : (
                     ""
@@ -58,13 +63,55 @@ export const Box = () => {
             </div>
           </>
         ) : (
-          ""
+          <>
+            <div className="selected-wrapper">
+              <div className="selected-top-box">
+                <div className="pokemon-frame">
+                  <img
+                    src={"/images/pokemon/local-mon/undefined.png"}
+                    alt={"???"}
+                  />
+                </div>
+              </div>
+              <div className="selected-bottom-box">
+                <div className="pokemon-info">
+                  <h3 className="pokemon-No">No:???</h3>
+                  <h3>Name:???</h3>
+                  <h3 className="selected-pokemon-type-img">
+                    Type:
+                    <img
+                      src={`images/pokemon/types/undefined.png`}
+                      alt={"???"}
+                    />
+                  </h3>
+                </div>
+                <div className="pokemon-info-buttons">
+                  {userId === selectedPokemon.userId ? (
+                    <>
+                      <div className="edit-button">
+                        <h3>Edit</h3>
+                      </div>
+                      <div className="delete-button">
+                        <h3>Delete</h3>
+                      </div>
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
+            </div>
+          </>
         )}
 
         <div className="box-wrapper">
           <div className="box-buttons">
-            <div className="create-button">Create</div>
-            <div className="close-button">Delete</div>
+            <div className="create-button">
+              <h3>Create</h3>
+            </div>
+            <div className="close-button">
+              <h3>Close Box</h3>
+            </div>
           </div>
           <div className="box-display">
             <div className="pokemon-list"></div>

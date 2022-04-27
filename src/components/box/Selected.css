@@ -1,17 +1,19 @@
 .box-page-wrapper {
     position: relative;
-    background-color: #F8E7DF;
+    background-color: #f8dfd0;
     width: 1920px;
     height: 1080px;
 }
 
 h3 {
     margin: 0;
-    padding : 0.5em;
-    color:white;
-    filter: drop-shadow(0 0 0.15rem black);
+    padding: 0.5em;
+    padding-top: 0.5em;
+    color: white;
+    filter: drop-shadow(0 0 0.1rem black);
     size: 12rem;
 }
+
 h3 img {
     width: 50px;
 }
@@ -22,10 +24,11 @@ h3 img {
     width: 15%;
     height: 100%;
     margin: 0.5em;
+    margin-top: 4.2em;
 }
 
 .selected-top-box {
-    display:flex;
+    display: flex;
     justify-content: center;
     height: 20%;
     background-color: #707078;
@@ -35,7 +38,7 @@ h3 img {
 }
 
 .pokemon-frame {
-    display:flex;
+    display: flex;
     justify-content: center;
     padding: 2em;
     width: 100%;
@@ -50,4 +53,29 @@ h3 img {
     border-style: solid;
     border-top: none !important;
     border-color: #505058;
+}
+
+.pokemon-info-buttons {
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    margin-top: 9em;
+}
+
+.edit-button {
+    background-color: #A0C8F0;
+    border-style: solid;
+    border-color: #52525A;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #FC7171;
+    border-style: solid;
+    border-color: #52525A;
+    cursor: pointer;
+}
+
+.pokemon-No {
+    padding-top: 1em;
 }

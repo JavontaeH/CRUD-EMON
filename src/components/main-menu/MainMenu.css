@@ -3,12 +3,13 @@ body {
 }
 
 .menu-page-wrapper {
+
     width: 1920px;
     height: 1080px;
     position: relative;
     background-image: url(../../../public/images/menu/townBg-effects.png);
     background-repeat: no-repeat;
-    background-size: 80%;
+    background-size: 100%;
 }
 
 
@@ -17,13 +18,13 @@ body {
 .button-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 2.5%;
     min-width: 50%;
     min-height: 50%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 2em;
-    left: 10%;
+    left: 20%;
+    top: 20%;
 }
 
 .button-wrapper-content {
