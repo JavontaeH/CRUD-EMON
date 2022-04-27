@@ -10,6 +10,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
     navigate("/menu");
   };
 
+  // ternary shows diff buttons if not logged in
   if (isAuthenticated) {
     return (
       <>

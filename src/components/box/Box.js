@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import * as get from "../../modules/pokemonManager.js";
+import { PokemonCard } from "./PokemonCard.js";
+import Navigate, { useNavigate } from "react-router-dom";
 import "./Selected.css";
 import "./BoxDisplay.css";
 
@@ -6,23 +9,42 @@ export const Box = () => {
   const [pokemon, setPokemon] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const userId = parseInt(sessionStorage.getItem("poke_user"));
+  const navigate = useNavigate();
+
+  const getPokemon = () => {
+    return get.AllPokemon().then((pokemon) => {
+      setPokemon(pokemon);
+    });
+  };
+
+  const deletePokemon = (id) => {
+    get
+      .deletePokemon(id)
+      .then(() => get.AllPokemon().then(setPokemon).then(setSelectedPokemon));
+  };
 
   useEffect(() => {
-    const ember = {
-      id: 1,
-      userId: 1,
-      name: "Ember",
-      frontImg: "/images/pokemon/local-mon/ember/front.png",
-      backImg: "/images/pokemon/local-mon/ember/back.png",
-      type: "Fire",
-    };
-    setSelectedPokemon(ember);
+    getPokemon();
   }, []);
+
+  const handlePokemonClick = (pokemon) => {
+    // watching for pokemon click and if it was the one already clicked
+    if (pokemon !== selectedPokemon) {
+      setSelectedPokemon(pokemon);
+    } else {
+      setSelectedPokemon({});
+    }
+  };
+
+  const handleDeleteClick = (pokemon) => {
+    setSelectedPokemon({});
+    deletePokemon(pokemon.id);
+  };
 
   return (
     <>
       <div className="box-page-wrapper">
-        {selectedPokemon.id ? (
+        {selectedPokemon?.id ? (
           <>
             <div className="selected-wrapper">
               <div className="selected-top-box">
@@ -51,7 +73,10 @@ export const Box = () => {
                       <div className="edit-button">
                         <h3>Edit</h3>
                       </div>
-                      <div className="delete-button">
+                      <div
+                        className="delete-button"
+                        onClick={() => handleDeleteClick(selectedPokemon)}
+                      >
                         <h3>Delete</h3>
                       </div>
                     </>
@@ -86,7 +111,7 @@ export const Box = () => {
                   </h3>
                 </div>
                 <div className="pokemon-info-buttons">
-                  {userId === selectedPokemon.userId ? (
+                  {userId === selectedPokemon?.userId ? (
                     <>
                       <div className="edit-button">
                         <h3>Edit</h3>
@@ -109,12 +134,20 @@ export const Box = () => {
             <div className="create-button">
               <h3>Create</h3>
             </div>
-            <div className="close-button">
+            <div className="close-button" onClick={() => navigate("/menu")}>
               <h3>Close Box</h3>
             </div>
           </div>
           <div className="box-display">
-            <div className="pokemon-list"></div>
+            <div className="pokemon-list">
+              {pokemon.map((pokeman) => (
+                <PokemonCard
+                  pokemon={pokeman}
+                  key={pokeman.id}
+                  handlePokemonClick={handlePokemonClick}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

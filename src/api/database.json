@@ -14,6 +14,14 @@
       "frontImg": "/images/pokemon/local-mon/ember/front.png",
       "backImg": "/images/pokemon/local-mon/ember/back.png",
       "type": "Fire"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "name": "Draggle",
+      "frontImg": "/images/pokemon/local-mon/dragon/front.png",
+      "backImg": "/images/pokemon/local-mon/dragon/back.png",
+      "type": "Dragon"
     }
   ],
   "attacks": [
