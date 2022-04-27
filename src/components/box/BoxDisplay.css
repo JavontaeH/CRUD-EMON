@@ -61,12 +61,15 @@
 .pokemon-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .pokemon-card-wrapper {
-    width: 125px;
-    height: 125px;
+    min-width: 125px;
+    min-height: 125px;
     margin: 1em;
+    margin-right: 0em;
     cursor: pointer;
     display: flex;
     justify-content: center;
