@@ -77,6 +77,14 @@ h3 img {
     cursor: pointer;
 }
 
+.edit-button:hover {
+    background-color: #7d9cbb;
+}
+
+.delete-button:hover {
+    background-color: #c05555;
+}
+
 .pokemon-No {
     padding-top: 1em;
 }

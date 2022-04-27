@@ -27,6 +27,16 @@
     cursor: pointer;
 }
 
+.create-button:hover {
+    background-color: #71a366;
+
+}
+
+.close-button:hover {
+    background-color: #c05555;
+
+}
+
 .box-display {
     margin-top: 1em;
     width: 100%;
@@ -54,10 +64,17 @@
 }
 
 .pokemon-card-wrapper {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     margin: 1em;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.pokemon-card-wrapper img {
+    width: 80%;
+    height: 80%;
 }
 
 .pokemon-card-wrapper:hover {

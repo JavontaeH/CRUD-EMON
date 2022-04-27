@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as get from "../../modules/pokemonManager.js";
 import { PokemonCard } from "./PokemonCard.js";
 import Navigate, { useNavigate } from "react-router-dom";
+import { CreatePokemonPopup } from "./CreatePokemonPopup.js";
 import "./Selected.css";
 import "./BoxDisplay.css";
 
@@ -10,9 +11,10 @@ export const Box = () => {
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const userId = parseInt(sessionStorage.getItem("poke_user"));
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const getPokemon = () => {
-    return get.AllPokemon().then((pokemon) => {
+    return get.allPokemon().then((pokemon) => {
       setPokemon(pokemon);
     });
   };
@@ -20,7 +22,11 @@ export const Box = () => {
   const deletePokemon = (id) => {
     get
       .deletePokemon(id)
-      .then(() => get.AllPokemon().then(setPokemon).then(setSelectedPokemon));
+      .then(() => get.allPokemon().then(setPokemon).then(setSelectedPokemon));
+  };
+
+  const createPokemon = (pokemon) => {
+    get.addPokemon(pokemon).then(() => get.allPokemon().then(setPokemon));
   };
 
   useEffect(() => {
@@ -39,6 +45,15 @@ export const Box = () => {
   const handleDeleteClick = (pokemon) => {
     setSelectedPokemon({});
     deletePokemon(pokemon.id);
+  };
+
+  const toggleCreatePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleCreatePokemon = (pokemon) => {
+    toggleCreatePopup();
+    createPokemon(pokemon);
   };
 
   return (
@@ -131,13 +146,20 @@ export const Box = () => {
 
         <div className="box-wrapper">
           <div className="box-buttons">
-            <div className="create-button">
+            <div className="create-button" onClick={toggleCreatePopup}>
               <h3>Create</h3>
             </div>
             <div className="close-button" onClick={() => navigate("/menu")}>
               <h3>Close Box</h3>
             </div>
           </div>
+          {isOpen && (
+            <CreatePokemonPopup
+              handleClose={toggleCreatePopup}
+              userId={userId}
+              handleCreatePokemon={handleCreatePokemon}
+            />
+          )}
           <div className="box-display">
             <div className="pokemon-list">
               {pokemon.map((pokeman) => (
