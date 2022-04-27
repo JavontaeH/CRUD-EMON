@@ -40,7 +40,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
                       alt="Logout Icon"
                     />
                   </div>
-                  Logout
+                  <div className="button-text">Logout</div>
                 </div>
               </div>
               <div className="bottom-menu-buttons">
@@ -52,7 +52,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
                       alt="Box Icon"
                     />
                   </div>
-                  Box
+                  <div className="button-text">Box</div>
                 </div>
               </div>
             </div>
