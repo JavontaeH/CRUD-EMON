@@ -422,6 +422,14 @@
       "backImg": "/images/pokemon/local-mon/dragon/back.png",
       "type": "Dragon",
       "id": 52
+    },
+    {
+      "userId": 1,
+      "name": "Charizard",
+      "frontImg": "https://img.pokemondb.net/sprites/black-white/normal/charizard.png",
+      "backImg": "https://img.pokemondb.net/sprites/black-white/back-normal/charizard.png",
+      "type": "fire",
+      "id": 53
     }
   ],
   "attacks": [

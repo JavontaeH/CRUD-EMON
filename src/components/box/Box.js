@@ -3,6 +3,7 @@ import * as get from "../../modules/pokemonManager.js";
 import { PokemonCard } from "./PokemonCard.js";
 import Navigate, { useNavigate } from "react-router-dom";
 import { CreatePokemonPopup } from "./CreatePokemonPopup.js";
+import { EditPokemonPopup } from "./EditPokemonPopup.js";
 import "./Selected.css";
 import "./BoxDisplay.css";
 
@@ -12,6 +13,7 @@ export const Box = () => {
   const userId = parseInt(sessionStorage.getItem("poke_user"));
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [editIsOpen, setEditIsOpen] = useState(false);
 
   const getPokemon = () => {
     return get.allPokemon().then((pokemon) => {
@@ -27,6 +29,17 @@ export const Box = () => {
 
   const createPokemon = (pokemon) => {
     get.addPokemon(pokemon).then(() => get.allPokemon().then(setPokemon));
+  };
+
+  const editPokemon = (pokemon) => {
+    get.editPokemon(pokemon).then(() =>
+      get
+        .allPokemon()
+        .then((pokemon) => {
+          setPokemon(pokemon);
+        })
+        .then(() => setSelectedPokemon(pokemon))
+    );
   };
 
   useEffect(() => {
@@ -49,6 +62,10 @@ export const Box = () => {
 
   const toggleCreatePopup = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleEditPopup = () => {
+    setEditIsOpen(!editIsOpen);
   };
 
   const handleCreatePokemon = (pokemon) => {
@@ -95,7 +112,10 @@ export const Box = () => {
                 <div className="pokemon-info-buttons">
                   {userId === selectedPokemon.userId ? (
                     <>
-                      <div className="edit-button">
+                      <div
+                        className="edit-button"
+                        onClick={() => toggleEditPopup()}
+                      >
                         <h3>Edit</h3>
                       </div>
                       <div
@@ -168,6 +188,18 @@ export const Box = () => {
               handleClose={toggleCreatePopup}
               userId={userId}
               handleCreatePokemon={handleCreatePokemon}
+            />
+          )}
+          {editIsOpen && (
+            <EditPokemonPopup
+              handleClose={toggleEditPopup}
+              userId={userId}
+              name={selectedPokemon.name}
+              frontImg={selectedPokemon.frontImg}
+              backImg={selectedPokemon.backImg}
+              type={selectedPokemon.type}
+              id={selectedPokemon.id}
+              editPokemon={editPokemon}
             />
           )}
           <div className="box-display">
