@@ -21,7 +21,7 @@ h3 img {
 .selected-wrapper {
     position: absolute;
     left: 0%;
-    width: 15%;
+    width: 16%;
     height: 100%;
     margin: 0.5em;
     margin-top: 4.2em;
@@ -47,6 +47,7 @@ h3 img {
     border-style: solid;
     border-color: #9C9CAE;
 }
+
 
 .selected-bottom-box {
     height: 30%;
