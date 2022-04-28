@@ -1,0 +1,47 @@
+.battle-wrapper {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    display: inline-block;
+}
+
+.attack-interface-wrapper {
+    display: flex;
+    height: 300px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: white;
+    border: 4px solid black;
+}
+
+.attack-options {
+
+    width: 66.66%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.attack-options button {
+    font-size: 2em;
+    border: 0;
+}
+
+.attack-options button:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.attack-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33.33%;
+    border-left: 4px solid black;
+}
+
+.attack-type h1 {
+    margin: 0;
+}

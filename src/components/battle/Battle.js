@@ -21,13 +21,33 @@ export const Battle = (props) => {
     pikaImg.src =
       "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif";
 
+    const pikaBackImg = new Image();
+    pikaBackImg.src =
+      "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif";
+
     // animation loop
     function animateBattle() {
       c.drawImage(pikaImg, 1500, 200, pikaImg.width * 3, pikaImg.height * 3);
+      c.drawImage(pikaBackImg, 600, 600, pikaImg.width * 3, pikaImg.height * 3);
       window.requestAnimationFrame(animateBattle);
     }
     animateBattle();
   }, []);
 
-  return <canvas ref={canvasRef} {...props} />;
+  return (
+    <div className="battle-wrapper">
+      <div className="attack-interface-wrapper">
+        <div className="attack-options">
+          <button>Attack 1</button>
+          <button>Attack 2</button>
+          <button>Attack 3</button>
+          <button>Attack 4</button>
+        </div>
+        <div className="attack-type">
+          <h1>Attack Type</h1>
+        </div>
+      </div>
+      <canvas ref={canvasRef} />
+    </div>
+  );
 };
