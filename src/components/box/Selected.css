@@ -15,7 +15,12 @@ h3 {
 }
 
 h3 img {
-    width: 50px;
+    width: 65px;
+}
+
+.selected-pokemon-type-img {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .selected-wrapper {
@@ -41,12 +46,13 @@ h3 img {
 .pokemon-frame {
     display: flex;
     justify-content: center;
-    padding: 2em;
+    padding: 0.5em;
     width: 100%;
     background-color: #BED7F3;
     border-style: solid;
     border-color: #9C9CAE;
 }
+
 
 
 .selected-bottom-box {
