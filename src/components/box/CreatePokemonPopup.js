@@ -41,6 +41,7 @@ export const CreatePokemonPopup = (props) => {
     <div className="popup-wrapper">
       <div className="popup-box">
         <div className="popup-input">
+          <h2>Build a Pokemon!</h2>
           <input
             type="text"
             required
