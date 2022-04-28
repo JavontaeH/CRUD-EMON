@@ -93,9 +93,15 @@ export const EditPokemonPopup = (props) => {
             value={editedPokemon.backImg}
           />
           <label htmlFor="backImg">Pokemon Back Image</label>
-          <select id="type" onChange={handleFieldChange}>
+          <select
+            id="type"
+            onChange={handleFieldChange}
+            defaultValue={editedPokemon.type}
+          >
             {arrOfTypes.map((type) => (
-              <option value={type}>{type}</option>
+              <option key={type} value={type}>
+                {type}
+              </option>
             ))}
           </select>
           <label htmlFor="type">Pokemon Type</label>
