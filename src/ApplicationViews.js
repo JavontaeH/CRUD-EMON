@@ -4,6 +4,7 @@ import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import { MainMenu } from "./components/main-menu/MainMenu.js";
 import { Box } from "./components/box/Box";
+import { Battle } from "./components/battle/Battle";
 
 export const ApplicationViews = ({
   isAuthenticated,
@@ -17,7 +18,9 @@ export const ApplicationViews = ({
   return (
     <>
       <Routes>
-        <Route path="/" element={<PrivateOutlet />}></Route>
+        <Route path="/" element={<PrivateOutlet />}>
+          <Route path="battle" element={<Battle />} />
+        </Route>
 
         <Route
           path="/menu"

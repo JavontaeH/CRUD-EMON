@@ -21,7 +21,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
               <div className="top-menu-buttons">
                 <div
                   className="menu-button"
-                  onClick={() => navigate("/select")}
+                  onClick={() => navigate("/battle")}
                 >
                   <div className="button-img-container">
                     <img
