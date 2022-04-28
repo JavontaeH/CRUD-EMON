@@ -12,9 +12,11 @@ export const Box = () => {
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const userId = parseInt(sessionStorage.getItem("poke_user"));
   const navigate = useNavigate();
+  const [showingUserMon, setShowingUserMon] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [editIsOpen, setEditIsOpen] = useState(false);
 
+  // fetch calls for CRUD w/ pokemon
   const getPokemon = () => {
     return get.allPokemon().then((pokemon) => {
       setPokemon(pokemon);
@@ -60,6 +62,21 @@ export const Box = () => {
     deletePokemon(pokemon.id);
   };
 
+  // toggle for show user pokemon vs show all pokemon
+  const handleUserPokemonClick = () => {
+    if (showingUserMon === false) {
+      get.allPokemon().then((pokemon) => {
+        setPokemon(pokemon.filter((pokemon) => pokemon.userId === userId));
+      });
+      setShowingUserMon(true);
+    }
+    if (showingUserMon === true) {
+      getPokemon();
+      setShowingUserMon(false);
+    }
+  };
+
+  // popup toggles
   const toggleCreatePopup = () => {
     setIsOpen(!isOpen);
   };
@@ -68,6 +85,7 @@ export const Box = () => {
     setEditIsOpen(!editIsOpen);
   };
 
+  // event handler for create pokemon with conditionals, should be in the component tbh, but would require refactoring.
   const handleCreatePokemon = (pokemon) => {
     if (
       pokemon.frontImg.startsWith("http") === false ||
@@ -181,6 +199,21 @@ export const Box = () => {
             <div className="create-button" onClick={toggleCreatePopup}>
               <h3>Create</h3>
             </div>
+            {showingUserMon === false ? (
+              <div
+                className="show-user-button"
+                onClick={handleUserPokemonClick}
+              >
+                <h3>Show Your Pokemon</h3>
+              </div>
+            ) : (
+              <div
+                className="show-user-button"
+                onClick={handleUserPokemonClick}
+              >
+                <h3>Show All Pokemon</h3>
+              </div>
+            )}
             <div className="close-button" onClick={() => navigate("/menu")}>
               <h3>Close Box</h3>
             </div>

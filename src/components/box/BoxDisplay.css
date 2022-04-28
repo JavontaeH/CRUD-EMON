@@ -38,6 +38,17 @@
 
 }
 
+.show-user-button {
+    background-color: #A0C8F0;
+    border-style: solid;
+    border-color: #52525A;
+    cursor: pointer;
+}
+
+.show-user-button:hover {
+    background-color: #7d9cbb;
+}
+
 .box-display {
     margin-top: 1em;
     width: 100%;
