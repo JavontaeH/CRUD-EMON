@@ -2,7 +2,32 @@
     width: 1920px;
     height: 1080px;
     position: relative;
-    display: inline-block;
+    background-image: url(../../../public/images/battle/battleBackground.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+
+
+
+.user-pokemon-wrapper {
+    bottom: 35%;
+    left: 30%;
+    position: absolute;
+}
+
+.user-pokemon-wrapper img {
+    transform: scale(4);
+}
+
+.enemy-pokemon-wrapper {
+    top: 25%;
+    left: 80%;
+    position: absolute;
+}
+
+.enemy-pokemon-wrapper img {
+    transform: scale(4);
 }
 
 .attack-interface-wrapper {
