@@ -8,8 +8,8 @@ export const Battle = (props) => {
   const enemyPokemonRef = useRef();
   const enemyHpRef = useRef();
   const playerHpRef = useRef();
-
-  const playerPokemon = {
+  // attacking pokemon obj
+  const [playerPokemon, setPlayerPokemon] = useState({
     name: "Pikachu",
     frontImg:
       "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
@@ -21,6 +21,7 @@ export const Battle = (props) => {
         id: 1,
         name: "Tackle",
         type: "normal",
+        damage: 10,
         animation: function () {
           const tl = gsap.timeline();
           tl.to(playerPokemonRef.current, {
@@ -36,7 +37,6 @@ export const Battle = (props) => {
                 });
 
                 enemyPokemon.hp = enemyPokemon.hp - this.damage;
-                console.log(enemyPokemon.hp);
 
                 gsap.to(enemyPokemonRef.current, {
                   x: 15,
@@ -57,17 +57,11 @@ export const Battle = (props) => {
               x: +0,
             });
         },
-        damage: 10,
-      },
-      {
-        id: 2,
-        name: "Thunder",
-        type: "electric",
-        damage: 50,
       },
     ],
-  };
-  const enemyPokemon = {
+  });
+  // defending pokemon obj
+  const [enemyPokemon, setEnemyPokemon] = useState({
     name: "Charizard",
     frontImg:
       "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
@@ -82,12 +76,14 @@ export const Battle = (props) => {
         damage: 10,
       },
     ],
-  };
+  });
 
+  // event handler for clicking pokemon attack
   const handleAttackClicked = (attack) => {
-    attack.animation();
+    eval(attack.animation());
   };
 
+  // event handlers for showing type when move is hovered
   const handleOnHover = (attackType) => {
     setAttackType(attackType);
   };
