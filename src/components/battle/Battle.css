@@ -2,8 +2,49 @@
     width: 1920px;
     height: 1080px;
     position: relative;
-    display: inline-block;
+    background-image: url(../../../public/images/battle/battleBackground.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
 }
+
+
+
+.user-pokemon-wrapper {
+    top: 45%;
+    left: 20%;
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.user-pokemon {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+}
+
+.enemy-pokemon-wrapper {
+    top: 10%;
+    left: 70%;
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.enemy-pokemon {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+}
+
+
 
 .attack-interface-wrapper {
     display: flex;
@@ -44,4 +85,94 @@
 
 .attack-type h1 {
     margin: 0;
+}
+
+.attack-type img {
+    transform: scale(5);
+}
+
+.enemy-health-interface-wrapper {
+    background-color: white;
+    border: 4px solid black;
+    width: 300px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    padding: 12px;
+}
+
+.enemy-health-interface-wrapper:before {
+    content: "";
+    position: absolute;
+    top: 41.5px;
+    right: -33px;
+    border: solid 14.5px transparent;
+    border-left-color: black;
+
+}
+
+.enemy-health-interface-wrapper h2 {
+    margin: 0;
+}
+
+.enemy-hp-wrapper {
+    position: relative;
+}
+
+.enemy-hp-grey {
+    height: 10px;
+    background-color: #ccc;
+    margin-top: 10px;
+}
+
+.enemy-hp-green {
+    height: 10px;
+    background-color: green;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.player-health-interface-wrapper {
+    background-color: white;
+    border: 4px solid black;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    padding: 12px;
+}
+
+.player-health-interface-wrapper:before {
+    content: "";
+    position: absolute;
+    top: 41.5px;
+    left: -33px;
+    border: solid 14.5px transparent;
+    border-right-color: black;
+
+}
+
+.player-health-interface-wrapper h2 {
+    margin: 0;
+}
+
+.player-hp-wrapper {
+    position: relative;
+}
+
+.player-hp-grey {
+    height: 10px;
+    background-color: #ccc;
+    margin-top: 10px;
+}
+
+.player-hp-green {
+    height: 10px;
+    background-color: green;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
