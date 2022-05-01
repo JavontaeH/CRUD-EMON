@@ -4,12 +4,13 @@ body {
 
 .menu-page-wrapper {
 
-    width: 1920px;
-    height: 1080px;
+    width: 100vw;
+    height: 100vh;
     position: relative;
     background-image: url(../../../public/images/menu/townBg-effects.png);
     background-repeat: no-repeat;
     background-size: 100%;
+    background-position: center;
 }
 
 
@@ -23,8 +24,9 @@ body {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 2em;
-    left: 20%;
-    top: 20%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .button-wrapper-content {

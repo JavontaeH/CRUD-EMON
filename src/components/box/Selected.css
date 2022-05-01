@@ -1,8 +1,8 @@
 .box-page-wrapper {
     position: relative;
     background-color: #f8dfd0;
-    width: 1920px;
-    height: 1080px;
+    width: 100vw;
+    height: 100vh;
 }
 
 h3 {
@@ -67,7 +67,7 @@ h3 img {
     display: flex;
     color: white;
     justify-content: space-around;
-    margin-top: 9em;
+    margin-top: 34%;
 }
 
 .edit-button {

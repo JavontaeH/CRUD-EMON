@@ -1,23 +1,25 @@
 .battle-wrapper {
-    width: 1920px;
-    height: 1080px;
+    width: 100vw;
+    height: 100vh;
     position: relative;
     background-image: url(../../../public/images/battle/battleBackground.png);
     background-repeat: no-repeat;
     background-size: 100%;
+    background-position: center;
 
 }
 
 
 
 .user-pokemon-wrapper {
-    top: 45%;
-    left: 20%;
     position: absolute;
-    width: 500px;
-    height: 300px;
+    width: 45%;
+    height: 45%;
     display: flex;
     justify-content: center;
+    top: 25%;
+    left: 15%;
+    transform: translate(-15%, 25%);
 }
 
 .user-pokemon {
@@ -28,13 +30,14 @@
 }
 
 .enemy-pokemon-wrapper {
-    top: 10%;
-    left: 70%;
+    top: -2%;
+    left: 105%;
     position: absolute;
-    width: 500px;
-    height: 300px;
+    width: 45%;
+    height: 45%;
     display: flex;
     justify-content: center;
+    transform: translate(-105%, -2%);
 }
 
 .enemy-pokemon {
@@ -48,7 +51,7 @@
 
 .attack-interface-wrapper {
     display: flex;
-    height: 300px;
+    height: 25%;
     bottom: 0;
     left: 0;
     right: 0;
@@ -98,6 +101,7 @@
     position: absolute;
     top: 15%;
     left: 50%;
+    transform: translate(-50%, -15%);
     padding: 12px;
 }
 
@@ -141,6 +145,7 @@
     position: absolute;
     top: 50%;
     left: 55%;
+    transform: translate(-55%, -50%);
     padding: 12px;
 }
 
