@@ -49,8 +49,7 @@
       "id": 1,
       "name": "Tackle",
       "type": "normal",
-      "damage": 10,
-      "animtion": ""
+      "damage": 10
     }
   ],
   "pokemonAttacks": [
