@@ -144,8 +144,8 @@
     width: 300px;
     position: absolute;
     top: 50%;
-    left: 55%;
-    transform: translate(-55%, -50%);
+    left: 65%;
+    transform: translate(-65%, -50%);
     padding: 12px;
 }
 
