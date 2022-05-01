@@ -70,10 +70,10 @@ export const Register = () => {
 
       <form className="form--login" onSubmit={handleRegister}>
         <h1 className="h3 mb-3 font-weight-normal">
-          Please Register for Application Name
+          Please Register for CRUD-Emons
         </h1>
         <fieldset>
-          <label htmlFor="firstName"> First Name </label>
+          <label htmlFor="firstName"> First Name:</label>
           <input
             type="text"
             name="firstName"
@@ -87,7 +87,7 @@ export const Register = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="lastName"> Last Name </label>
+          <label htmlFor="lastName"> Last Name:</label>
           <input
             type="text"
             name="lastName"
@@ -100,7 +100,7 @@ export const Register = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="inputEmail"> Email address </label>
+          <label htmlFor="inputEmail"> Email address:</label>
           <input
             type="email"
             name="email"

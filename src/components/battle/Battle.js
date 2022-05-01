@@ -22,41 +22,6 @@ export const Battle = (props) => {
         name: "Tackle",
         type: "normal",
         damage: 10,
-        animation: function () {
-          const tl = gsap.timeline();
-          tl.to(playerPokemonRef.current, {
-            x: -60,
-          })
-            .to(playerPokemonRef.current, {
-              x: +60,
-              duration: 0.1,
-              onComplete: () => {
-                // enemy gets hit here
-                gsap.to(enemyHpRef.current, {
-                  width: enemyPokemon.hp - this.damage + "%",
-                });
-
-                enemyPokemon.hp = enemyPokemon.hp - this.damage;
-
-                gsap.to(enemyPokemonRef.current, {
-                  x: 15,
-                  yoyo: true,
-                  repeat: 5,
-                  duration: 0.08,
-                });
-
-                gsap.to(enemyPokemonRef.current, {
-                  opacity: 0,
-                  repeat: 5,
-                  yoyo: true,
-                  duration: 0.08,
-                });
-              },
-            })
-            .to(playerPokemonRef.current, {
-              x: +0,
-            });
-        },
       },
     ],
   });
@@ -78,9 +43,49 @@ export const Battle = (props) => {
     ],
   });
 
+  // function for animating each attack using gsap animations
+  const animate = (attack) => {
+    if (attack.name.toLowerCase() === "tackle") {
+      const tl = gsap.timeline();
+      tl.to(playerPokemonRef.current, {
+        x: -60,
+      })
+        .to(playerPokemonRef.current, {
+          x: +60,
+          duration: 0.1,
+          onComplete: () => {
+            // enemy gets hit here
+            gsap.to(enemyHpRef.current, {
+              width: enemyPokemon.hp - attack.damage + "%",
+            });
+
+            // modify pokemon hp on attack hit during the animation
+            enemyPokemon.hp = enemyPokemon.hp - attack.damage;
+
+            gsap.to(enemyPokemonRef.current, {
+              x: 15,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08,
+            });
+
+            gsap.to(enemyPokemonRef.current, {
+              opacity: 0,
+              repeat: 5,
+              yoyo: true,
+              duration: 0.08,
+            });
+          },
+        })
+        .to(playerPokemonRef.current, {
+          x: +0,
+        });
+    }
+  };
+
   // event handler for clicking pokemon attack
   const handleAttackClicked = (attack) => {
-    eval(attack.animation());
+    animate(attack);
   };
 
   // event handlers for showing type when move is hovered
