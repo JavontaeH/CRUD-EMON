@@ -9,7 +9,7 @@
   "pokemon": [
     {
       "id": 1,
-      "userId": 0,
+      "userId": 1,
       "name": "Ember",
       "frontImg": "/images/pokemon/local-mon/ember/front.png",
       "backImg": "/images/pokemon/local-mon/ember/back.png",
@@ -17,7 +17,7 @@
     },
     {
       "id": 2,
-      "userId": 0,
+      "userId": 1,
       "name": "Draggle",
       "frontImg": "/images/pokemon/local-mon/dragon/front.png",
       "backImg": "/images/pokemon/local-mon/dragon/back.png",
@@ -43,9 +43,10 @@
   "attacks": [
     {
       "id": 1,
-      "name": "tackle",
+      "name": "Tackle",
       "type": "normal",
-      "damage": 10
+      "damage": 10,
+      "animtion": ""
     }
   ],
   "pokemonAttacks": [

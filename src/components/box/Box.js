@@ -7,7 +7,7 @@ import { EditPokemonPopup } from "./EditPokemonPopup.js";
 import "./Selected.css";
 import "./BoxDisplay.css";
 
-export const Box = () => {
+export const Box = ({ isAuthenticated }) => {
   const [pokemon, setPokemon] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const userId = parseInt(sessionStorage.getItem("poke_user"));
@@ -196,9 +196,13 @@ export const Box = () => {
 
         <div className="box-wrapper">
           <div className="box-buttons">
-            <div className="create-button" onClick={toggleCreatePopup}>
-              <h3>Create</h3>
-            </div>
+            {isAuthenticated ? (
+              <div className="create-button" onClick={toggleCreatePopup}>
+                <h3>Create</h3>
+              </div>
+            ) : (
+              ""
+            )}
             {showingUserMon === false ? (
               <div
                 className="show-user-button"

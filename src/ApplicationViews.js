@@ -28,7 +28,10 @@ export const ApplicationViews = ({
             <MainMenu isAuthenticated={isAuthenticated} clearUser={clearUser} />
           }
         />
-        <Route path="/box" element={<Box />} />
+        <Route
+          path="/box"
+          element={<Box isAuthenticated={isAuthenticated} />}
+        />
         <Route path="/login" element={<Login setAuthUser={setAuthUser} />} />
         <Route path="/register" element={<Register />} />
       </Routes>
