@@ -61,6 +61,7 @@ export const Battle = (props) => {
 
             // modify pokemon hp on attack hit during the animation
             enemyPokemon.hp = enemyPokemon.hp - attack.damage;
+            setEnemyPokemon({ ...enemyPokemon });
 
             gsap.to(enemyPokemonRef.current, {
               x: 15,
