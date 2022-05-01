@@ -8,6 +8,7 @@ export const CreatePokemonPopup = (props) => {
     frontImg: "",
     backImg: "",
     type: "",
+    hp: 100,
   });
 
   const arrOfTypes = [

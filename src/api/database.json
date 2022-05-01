@@ -13,7 +13,8 @@
       "name": "Ember",
       "frontImg": "/images/pokemon/local-mon/ember/front.png",
       "backImg": "/images/pokemon/local-mon/ember/back.png",
-      "type": "fire"
+      "type": "fire",
+      "hp": 100
     },
     {
       "id": 2,
@@ -21,7 +22,8 @@
       "name": "Draggle",
       "frontImg": "/images/pokemon/local-mon/dragon/front.png",
       "backImg": "/images/pokemon/local-mon/dragon/back.png",
-      "type": "dragon"
+      "type": "dragon",
+      "hp": 100
     },
     {
       "userId": 1,
@@ -29,6 +31,7 @@
       "frontImg": "https://img.pokemondb.net/sprites/black-white/normal/charizard.png",
       "backImg": "https://img.pokemondb.net/sprites/black-white/back-normal/charizard.png",
       "type": "fire",
+      "hp": 100,
       "id": 3
     },
     {
@@ -37,6 +40,7 @@
       "frontImg": "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
       "backImg": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
       "type": "electric",
+      "hp": 100,
       "id": 4
     }
   ],
