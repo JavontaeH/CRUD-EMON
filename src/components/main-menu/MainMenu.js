@@ -66,7 +66,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
         <div className="menu-page-wrapper">
           <div className="button-wrapper">
             <div className="button-wrapper-content">
-              <h1 className="menu-title">Battle Monsters</h1>
+              <h1 className="menu-title">CRUD-emon</h1>
               <div className="top-menu-buttons">
                 <div className="menu-button" onClick={() => navigate("/login")}>
                   <div className="button-img-container">
