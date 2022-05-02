@@ -186,8 +186,12 @@
     margin: 1em;
 }
 
+.attack-assets {
+    visibility: visible;
+}
+
 .asset-image {
-    display: none;
+    visibility: hidden;
     position: absolute;
     left: 40%;
 

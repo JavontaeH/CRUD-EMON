@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
+import useDynamicRefs from "use-dynamic-refs";
 import "./Battle.css";
 
 export const Battle = (props) => {
   const [attackType, setAttackType] = useState("Attack Type");
   const [dialogueQueue, setDialogueQueue] = useState();
+  const [getRef, setRef] = useDynamicRefs();
   const playerPokemonRef = useRef();
   const enemyPokemonRef = useRef();
   const enemyHpRef = useRef();
@@ -137,6 +139,12 @@ export const Battle = (props) => {
             enemyPokemon.hp = enemyPokemon.hp - attack.damage;
             setEnemyPokemon({ ...enemyPokemon });
 
+            gsap.to(getRef("Thunder").current, {
+              duration: 0.2,
+              autoAlpha: 1,
+              delay: 0,
+            });
+
             gsap.to(enemyPokemonRef.current, {
               x: 15,
               yoyo: true,
@@ -264,6 +272,7 @@ export const Battle = (props) => {
                 className="asset-image"
                 key={"asset" + attack.id}
                 src={attack.image}
+                ref={setRef(attack.name)}
               />
             ) : (
               ""
