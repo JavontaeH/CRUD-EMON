@@ -66,12 +66,14 @@ label {
 }
 
 input {
-    height: 50%;
     height: 2em;
+    width: 15rem;
+
 }
 
 select {
     margin: 0.5em;
+    width: 15rem;
     height: 2em;
     text-transform: capitalize;
 }
