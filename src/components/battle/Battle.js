@@ -61,13 +61,63 @@ export const Battle = (props) => {
           duration: 0.1,
           onComplete: () => {
             // enemy gets hit here
-            gsap.to(enemyHpRef.current, {
-              width: enemyPokemon.hp - attack.damage + "%",
-            });
+            if (enemyPokemon.hp - attack.damage < 0) {
+              gsap.to(enemyHpRef.current, {
+                width: 0 + "%",
+              });
+            } else {
+              gsap.to(enemyHpRef.current, {
+                width: enemyPokemon.hp - attack.damage + "%",
+              });
+            }
 
             // modify pokemon hp on attack hit during the animation
             enemyPokemon.hp = enemyPokemon.hp - attack.damage;
             setEnemyPokemon({ ...enemyPokemon });
+
+            gsap.to(enemyPokemonRef.current, {
+              x: 15,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08,
+            });
+
+            gsap.to(enemyPokemonRef.current, {
+              opacity: 0,
+              repeat: 5,
+              yoyo: true,
+              duration: 0.08,
+            });
+          },
+        })
+        .to(playerPokemonRef.current, {
+          x: +0,
+        });
+    }
+    if (attack.name.toLowerCase() === "thunder") {
+      const tl = gsap.timeline();
+      tl.to(playerPokemonRef.current, {
+        x: -60,
+      })
+        .to(playerPokemonRef.current, {
+          x: +60,
+          duration: 0.1,
+          onComplete: () => {
+            // enemy gets hit here
+            if (enemyPokemon.hp - attack.damage < 0) {
+              gsap.to(enemyHpRef.current, {
+                width: 0 + "%",
+              });
+            } else {
+              gsap.to(enemyHpRef.current, {
+                width: enemyPokemon.hp - attack.damage + "%",
+              });
+            }
+
+            // modify pokemon hp on attack hit during the animation
+            enemyPokemon.hp = enemyPokemon.hp - attack.damage;
+            setEnemyPokemon({ ...enemyPokemon });
+            console.log(enemyPokemon);
 
             gsap.to(enemyPokemonRef.current, {
               x: 15,
@@ -105,7 +155,7 @@ export const Battle = (props) => {
   };
 
   return (
-    <div className="battle-wrapper">
+    <div className="battle-wrapper" id="header">
       <div className="user-pokemon-wrapper">
         <div className="user-pokemon">
           <img ref={playerPokemonRef} src={`${playerPokemon.backImg}`} />

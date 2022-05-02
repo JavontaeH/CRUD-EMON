@@ -49,13 +49,25 @@
       "id": 1,
       "name": "Tackle",
       "type": "normal",
-      "damage": 20
+      "damage": 10
     },
     {
       "id": 2,
       "name": "Thunder",
       "type": "electric",
       "damage": 35
+    },
+    {
+      "id": 3,
+      "name": "Earthquake",
+      "type": "ground",
+      "damage": 20
+    },
+    {
+      "id": 4,
+      "name": "Fire Blast",
+      "type": "fire",
+      "damage": 30
     }
   ],
   "pokemonAttacks": [
