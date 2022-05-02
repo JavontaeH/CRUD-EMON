@@ -56,18 +56,21 @@ h3 img {
 
 
 .selected-bottom-box {
-    height: 30%;
+    min-height: 30%;
     background-color: #9090A8;
     border-style: solid;
     border-top: none !important;
     border-color: #505058;
+    word-wrap: break-word;
 }
 
 .pokemon-info-buttons {
     display: flex;
     color: white;
     justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 34%;
+    margin-bottom: 0.5em;
 }
 
 .edit-button {
@@ -75,6 +78,7 @@ h3 img {
     border-style: solid;
     border-color: #52525A;
     cursor: pointer;
+    margin: 0.5em;
 }
 
 .delete-button {
@@ -82,6 +86,7 @@ h3 img {
     border-style: solid;
     border-color: #52525A;
     cursor: pointer;
+    margin: 0.5em;
 }
 
 .edit-button:hover {

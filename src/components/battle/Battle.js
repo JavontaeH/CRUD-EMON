@@ -23,6 +23,12 @@ export const Battle = (props) => {
         type: "normal",
         damage: 20,
       },
+      {
+        id: 2,
+        name: "Fireball",
+        type: "fire",
+        damage: 35,
+      },
     ],
   });
   // defending pokemon obj
