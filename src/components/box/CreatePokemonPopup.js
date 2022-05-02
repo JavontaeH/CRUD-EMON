@@ -80,7 +80,7 @@ export const CreatePokemonPopup = (props) => {
           <label htmlFor="type">Pokemon Type:</label>
           <select id="type" onChange={handleFieldChange} defaultValue="normal">
             {arrOfTypes.map((type) => (
-              <option key={type} value={type}>
+              <option key={type} value={type} id="type-dropdown-value">
                 {type}
               </option>
             ))}

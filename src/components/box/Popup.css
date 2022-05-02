@@ -73,4 +73,9 @@ input {
 select {
     margin: 0.5em;
     height: 2em;
+    text-transform: capitalize;
+}
+
+.type-dropdown-value {
+    text-transform: capitalize;
 }
