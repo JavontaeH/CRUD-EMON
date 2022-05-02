@@ -21,7 +21,7 @@ export const Battle = (props) => {
         id: 1,
         name: "Tackle",
         type: "normal",
-        damage: 10,
+        damage: 20,
       },
     ],
   });
@@ -38,7 +38,7 @@ export const Battle = (props) => {
         id: 1,
         name: "Tackle",
         type: "normal",
-        damage: 10,
+        damage: 20,
       },
     ],
   });
