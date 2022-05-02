@@ -17,6 +17,7 @@ export const Battle = (props) => {
       "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
     backImg:
       "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
+    type: "electric",
     hp: 100,
     attacks: [
       {
@@ -41,6 +42,7 @@ export const Battle = (props) => {
     backImg:
       "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif",
     hp: 100,
+    type: "fire",
     attacks: [
       {
         id: 1,
