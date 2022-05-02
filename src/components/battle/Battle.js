@@ -115,11 +115,12 @@ export const Battle = (props) => {
     if (attack.name.toLowerCase() === "thunder") {
       const tl = gsap.timeline();
       tl.to(playerPokemonRef.current, {
-        x: -60,
+        x: -0,
+        duration: 0,
       })
         .to(playerPokemonRef.current, {
-          x: +60,
-          duration: 0.1,
+          x: +25,
+          duration: 0.15,
           onComplete: () => {
             // enemy gets hit here
             if (enemyPokemon.hp - attack.damage < 0) {
