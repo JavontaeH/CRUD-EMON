@@ -4,6 +4,7 @@ import "./Battle.css";
 
 export const Battle = (props) => {
   const [attackType, setAttackType] = useState("Attack Type");
+  const [dialogueQueue, setDialogueQueue] = useState(false);
   const playerPokemonRef = useRef();
   const enemyPokemonRef = useRef();
   const enemyHpRef = useRef();
@@ -29,6 +30,12 @@ export const Battle = (props) => {
         type: "electric",
         damage: 35,
       },
+      {
+        id: 3,
+        name: "Earthquake",
+        type: "ground",
+        damage: 20,
+      },
     ],
   });
   // defending pokemon obj
@@ -44,6 +51,12 @@ export const Battle = (props) => {
         id: 1,
         name: "Tackle",
         type: "normal",
+        damage: 20,
+      },
+      {
+        id: 3,
+        name: "Earthquake",
+        type: "ground",
         damage: 20,
       },
     ],
@@ -138,11 +151,56 @@ export const Battle = (props) => {
           x: +0,
         });
     }
+    if (attack.name.toLowerCase() === "earthquake") {
+      const tl = gsap.timeline();
+      tl.to(playerPokemonRef.current, {
+        y: -30,
+      })
+        .to(playerPokemonRef.current, {
+          y: +30,
+          duration: 0.1,
+          onComplete: () => {
+            // enemy gets hit here
+            if (enemyPokemon.hp - attack.damage < 0) {
+              gsap.to(enemyHpRef.current, {
+                width: 0 + "%",
+              });
+            } else {
+              gsap.to(enemyHpRef.current, {
+                width: enemyPokemon.hp - attack.damage + "%",
+              });
+            }
+
+            // modify pokemon hp on attack hit during the animation
+            enemyPokemon.hp = enemyPokemon.hp - attack.damage;
+            setEnemyPokemon({ ...enemyPokemon });
+            console.log(enemyPokemon);
+
+            gsap.to(enemyPokemonRef.current, {
+              x: 15,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08,
+            });
+
+            gsap.to(enemyPokemonRef.current, {
+              opacity: 0,
+              repeat: 5,
+              yoyo: true,
+              duration: 0.08,
+            });
+          },
+        })
+        .to(playerPokemonRef.current, {
+          y: +0,
+        });
+    }
   };
 
   // event handler for clicking pokemon attack
   const handleAttackClicked = (attack) => {
     animate(attack);
+    setDialogueQueue(true);
   };
 
   // event handlers for showing type when move is hovered
@@ -181,28 +239,34 @@ export const Battle = (props) => {
         </div>
       </div>
       <div className="attack-interface-wrapper">
-        <div className="attack-options">
-          {playerPokemon.attacks.map((attack) => (
-            <button
-              key={attack.id}
-              onMouseEnter={() => handleOnHover(attack.type)}
-              onMouseLeave={() => handleOnExit()}
-              onClick={() => handleAttackClicked(attack)}
-            >
-              {attack.name}
-            </button>
-          ))}
-        </div>
-        <div className="attack-type">
-          {attackType === "Attack Type" ? (
-            <h1>{attackType}</h1>
-          ) : (
-            <img
-              src={`/images/pokemon/types/${attackType}.png`}
-              alt={"Attack Type"}
-            />
-          )}
-        </div>
+        {dialogueQueue === false ? (
+          <>
+            <div className="attack-options">
+              {playerPokemon.attacks.map((attack) => (
+                <button
+                  key={attack.id}
+                  onMouseEnter={() => handleOnHover(attack.type)}
+                  onMouseLeave={() => handleOnExit()}
+                  onClick={() => handleAttackClicked(attack)}
+                >
+                  {attack.name}
+                </button>
+              ))}
+            </div>
+            <div className="attack-type">
+              {attackType === "Attack Type" ? (
+                <h1>{attackType}</h1>
+              ) : (
+                <img
+                  src={`/images/pokemon/types/${attackType}.png`}
+                  alt={"Attack Type"}
+                />
+              )}
+            </div>
+          </>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
