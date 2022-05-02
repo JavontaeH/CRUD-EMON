@@ -28,8 +28,8 @@
     {
       "userId": 1,
       "name": "Charizard",
-      "frontImg": "https://img.pokemondb.net/sprites/black-white/normal/charizard.png",
-      "backImg": "https://img.pokemondb.net/sprites/black-white/back-normal/charizard.png",
+      "frontImg": "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
+      "backImg": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif",
       "type": "fire",
       "hp": 100,
       "id": 3
@@ -80,6 +80,16 @@
       "id": 2,
       "pokemonId": 4,
       "attackId": 2
+    },
+    {
+      "id": 3,
+      "pokemonId": 3,
+      "attackId": 4
+    },
+    {
+      "id": 4,
+      "pokemonId": 3,
+      "attackId": 1
     }
   ]
 }

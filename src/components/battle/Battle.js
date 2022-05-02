@@ -4,11 +4,12 @@ import "./Battle.css";
 
 export const Battle = (props) => {
   const [attackType, setAttackType] = useState("Attack Type");
-  const [dialogueQueue, setDialogueQueue] = useState("");
+  const [dialogueQueue, setDialogueQueue] = useState();
   const playerPokemonRef = useRef();
   const enemyPokemonRef = useRef();
   const enemyHpRef = useRef();
   const playerHpRef = useRef();
+  const battleScreenRef = useRef();
   // attacking pokemon obj
   const [playerPokemon, setPlayerPokemon] = useState({
     name: "Pikachu",
@@ -30,12 +31,6 @@ export const Battle = (props) => {
         type: "electric",
         damage: 35,
       },
-      {
-        id: 3,
-        name: "Earthquake",
-        type: "ground",
-        damage: 20,
-      },
     ],
   });
   // defending pokemon obj
@@ -52,6 +47,12 @@ export const Battle = (props) => {
         name: "Tackle",
         type: "normal",
         damage: 20,
+      },
+      {
+        id: 4,
+        name: "Fire Blast",
+        type: "fire",
+        damage: 30,
       },
       {
         id: 3,
@@ -184,6 +185,13 @@ export const Battle = (props) => {
               duration: 0.08,
             });
 
+            gsap.to(battleScreenRef.current, {
+              x: 15,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08,
+            });
+
             gsap.to(enemyPokemonRef.current, {
               opacity: 0,
               repeat: 5,
@@ -198,15 +206,32 @@ export const Battle = (props) => {
     }
   };
 
-  const clearDialogueQueue = () => {
-    setDialogueQueue("");
+  // clears dialogue queue
+  const clearDialogue = () => {
+    setDialogueQueue();
+  };
+
+  // swaps pokemon around and clears dialogue queue
+  const turnSwap = () => {
+    setDialogueQueue(`What Will ${enemyPokemon.name} Do?`);
+    setPlayerPokemon(enemyPokemon);
+    setEnemyPokemon(playerPokemon);
+    gsap.to(enemyHpRef.current, {
+      width: playerPokemon.hp + "%",
+      duration: 0,
+    });
+    gsap.to(playerHpRef.current, {
+      width: enemyPokemon.hp + "%",
+      duration: 0,
+    });
+    setTimeout(clearDialogue, 1500);
   };
 
   // event handler for clicking pokemon attack
   const handleAttackClicked = (attack) => {
     animate(attack);
     setDialogueQueue(`${playerPokemon.name} Used ${attack.name}!`);
-    setTimeout(clearDialogueQueue, 2000);
+    setTimeout(turnSwap, 2500);
   };
 
   // event handlers for showing type when move is hovered
@@ -219,7 +244,7 @@ export const Battle = (props) => {
   };
 
   return (
-    <div className="battle-wrapper" id="header">
+    <div className="battle-wrapper" ref={battleScreenRef}>
       <div className="user-pokemon-wrapper">
         <div className="user-pokemon">
           <img ref={playerPokemonRef} src={`${playerPokemon.backImg}`} />
@@ -245,7 +270,9 @@ export const Battle = (props) => {
         </div>
       </div>
       <div className="attack-interface-wrapper">
-        {dialogueQueue === "" ? (
+        {dialogueQueue ? (
+          <h2 className="attack-dialogue">{dialogueQueue}</h2>
+        ) : (
           <>
             <div className="attack-options">
               {playerPokemon.attacks.map((attack) => (
@@ -270,8 +297,6 @@ export const Battle = (props) => {
               )}
             </div>
           </>
-        ) : (
-          <h2 className="attack-dialogue">{dialogueQueue}</h2>
         )}
       </div>
     </div>
