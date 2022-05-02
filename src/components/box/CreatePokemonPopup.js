@@ -7,7 +7,7 @@ export const CreatePokemonPopup = (props) => {
     name: "",
     frontImg: "",
     backImg: "",
-    type: "",
+    type: "normal",
     hp: 100,
   });
 
@@ -43,47 +43,48 @@ export const CreatePokemonPopup = (props) => {
       <div className="popup-box">
         <div className="popup-input">
           <h2>Build a Pokemon!</h2>
+          <label htmlFor="name">Pokemon Name:</label>
           <input
             type="text"
             required
             autoFocus
             className="popup-input"
-            placeholder="Pokemon Name:"
             onChange={handleFieldChange}
             id="name"
             value={createdPokemon.name}
           />
-          <label htmlFor="name">Pokemon Name</label>
+          <label htmlFor="frontImg">
+            Pokemon Front Image Url (Pixel Art is best):
+          </label>
           <input
             type="text"
             required
             autoFocus
             className="popup-input"
-            placeholder="Pokemon Front Image Url (100x100 or smaller is best):"
             onChange={handleFieldChange}
             id="frontImg"
             value={createdPokemon.frontImg}
           />
-          <label htmlFor="frontImg">Pokemon Front Image</label>
+          <label htmlFor="backImg">
+            Pokemon Back Image Url (Pixel Art is best):
+          </label>
           <input
             type="text"
             required
             autoFocus
             className="popup-input"
-            placeholder="Pokemon Back Image Url (100x100 or smaller is best):"
             onChange={handleFieldChange}
             id="backImg"
             value={createdPokemon.backImg}
           />
-          <label htmlFor="backImg">Pokemon Back Image</label>
-          <select id="type" onChange={handleFieldChange}>
+          <label htmlFor="type">Pokemon Type:</label>
+          <select id="type" onChange={handleFieldChange} defaultValue="normal">
             {arrOfTypes.map((type) => (
               <option key={type} value={type}>
                 {type}
               </option>
             ))}
           </select>
-          <label htmlFor="type">Pokemon Type</label>
           <div className="popup-buttons">
             <span
               className="create-popup-icon"

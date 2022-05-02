@@ -60,6 +60,7 @@ export const EditPokemonPopup = (props) => {
       <div className="popup-box">
         <div className="popup-input">
           <h2>Edit a Pokemon!</h2>
+          <label htmlFor="name">Pokemon Name:</label>
           <input
             type="text"
             required
@@ -70,7 +71,10 @@ export const EditPokemonPopup = (props) => {
             id="name"
             value={editedPokemon.name}
           />
-          <label htmlFor="name">Pokemon Name</label>
+
+          <label htmlFor="backImg">
+            Pokemon Front Image Url (Pixel Art is best):
+          </label>
           <input
             type="text"
             required
@@ -81,7 +85,10 @@ export const EditPokemonPopup = (props) => {
             id="frontImg"
             value={editedPokemon.frontImg}
           />
-          <label htmlFor="frontImg">Pokemon Front Image</label>
+
+          <label htmlFor="backImg">
+            Pokemon Back Image Url (Pixel Art is best):
+          </label>
           <input
             type="text"
             required
@@ -92,7 +99,8 @@ export const EditPokemonPopup = (props) => {
             id="backImg"
             value={editedPokemon.backImg}
           />
-          <label htmlFor="backImg">Pokemon Back Image</label>
+
+          <label htmlFor="type">Pokemon Type:</label>
           <select
             id="type"
             onChange={handleFieldChange}
@@ -104,7 +112,6 @@ export const EditPokemonPopup = (props) => {
               </option>
             ))}
           </select>
-          <label htmlFor="type">Pokemon Type</label>
           <div className="popup-buttons">
             <span
               className="create-popup-icon"
