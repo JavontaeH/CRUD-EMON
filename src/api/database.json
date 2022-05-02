@@ -50,13 +50,24 @@
       "name": "Tackle",
       "type": "normal",
       "damage": 20
+    },
+    {
+      "id": 2,
+      "name": "Thunder",
+      "type": "electric",
+      "damage": 35
     }
   ],
   "pokemonAttacks": [
     {
       "id": 1,
-      "pokemonId": 1,
+      "pokemonId": 4,
       "attackId": 1
+    },
+    {
+      "id": 2,
+      "pokemonId": 4,
+      "attackId": 2
     }
   ]
 }

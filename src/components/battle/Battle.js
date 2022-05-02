@@ -25,8 +25,8 @@ export const Battle = (props) => {
       },
       {
         id: 2,
-        name: "Fireball",
-        type: "fire",
+        name: "Thunder",
+        type: "electric",
         damage: 35,
       },
     ],
