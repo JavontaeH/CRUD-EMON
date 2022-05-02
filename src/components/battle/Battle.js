@@ -4,7 +4,7 @@ import "./Battle.css";
 
 export const Battle = (props) => {
   const [attackType, setAttackType] = useState("Attack Type");
-  const [dialogueQueue, setDialogueQueue] = useState(false);
+  const [dialogueQueue, setDialogueQueue] = useState("");
   const playerPokemonRef = useRef();
   const enemyPokemonRef = useRef();
   const enemyHpRef = useRef();
@@ -155,6 +155,7 @@ export const Battle = (props) => {
       const tl = gsap.timeline();
       tl.to(playerPokemonRef.current, {
         y: -30,
+        duration: 0.25,
       })
         .to(playerPokemonRef.current, {
           y: +30,
@@ -197,10 +198,15 @@ export const Battle = (props) => {
     }
   };
 
+  const clearDialogueQueue = () => {
+    setDialogueQueue("");
+  };
+
   // event handler for clicking pokemon attack
   const handleAttackClicked = (attack) => {
     animate(attack);
-    setDialogueQueue(true);
+    setDialogueQueue(`${playerPokemon.name} Used ${attack.name}!`);
+    setTimeout(clearDialogueQueue, 2000);
   };
 
   // event handlers for showing type when move is hovered
@@ -239,7 +245,7 @@ export const Battle = (props) => {
         </div>
       </div>
       <div className="attack-interface-wrapper">
-        {dialogueQueue === false ? (
+        {dialogueQueue === "" ? (
           <>
             <div className="attack-options">
               {playerPokemon.attacks.map((attack) => (
@@ -265,7 +271,7 @@ export const Battle = (props) => {
             </div>
           </>
         ) : (
-          ""
+          <h2 className="attack-dialogue">{dialogueQueue}</h2>
         )}
       </div>
     </div>
