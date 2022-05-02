@@ -31,6 +31,7 @@ export const Battle = (props) => {
         name: "Thunder",
         type: "electric",
         damage: 35,
+        image: "/images/attacks/lightning.png",
       },
     ],
   });
@@ -55,6 +56,7 @@ export const Battle = (props) => {
         name: "Fire Blast",
         type: "fire",
         damage: 30,
+        image: "/images/attacks/fireball.png",
       },
       {
         id: 3,
@@ -133,7 +135,6 @@ export const Battle = (props) => {
             // modify pokemon hp on attack hit during the animation
             enemyPokemon.hp = enemyPokemon.hp - attack.damage;
             setEnemyPokemon({ ...enemyPokemon });
-            console.log(enemyPokemon);
 
             gsap.to(enemyPokemonRef.current, {
               x: 15,
@@ -178,7 +179,6 @@ export const Battle = (props) => {
             // modify pokemon hp on attack hit during the animation
             enemyPokemon.hp = enemyPokemon.hp - attack.damage;
             setEnemyPokemon({ ...enemyPokemon });
-            console.log(enemyPokemon);
 
             gsap.to(enemyPokemonRef.current, {
               x: 15,
@@ -255,6 +255,19 @@ export const Battle = (props) => {
       <div className="enemy-pokemon-wrapper">
         <div className="enemy-pokemon">
           <img ref={enemyPokemonRef} src={`${enemyPokemon.frontImg}`} />
+        </div>
+        <div className="attack-assets">
+          {playerPokemon.attacks.map((attack) =>
+            attack.image ? (
+              <img
+                className="asset-image"
+                key={"asset" + attack.id}
+                src={attack.image}
+              />
+            ) : (
+              ""
+            )
+          )}
         </div>
       </div>
       <div className="enemy-health-interface-wrapper">

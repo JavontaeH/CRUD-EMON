@@ -185,3 +185,10 @@
 .attack-dialogue {
     margin: 1em;
 }
+
+.asset-image {
+    /* display: none; */
+    position: absolute;
+    left: 40%;
+
+}
