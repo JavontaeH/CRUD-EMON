@@ -194,5 +194,7 @@
     visibility: hidden;
     position: absolute;
     left: 40%;
+    top: 40%;
+    transform: scale(2);
 
 }

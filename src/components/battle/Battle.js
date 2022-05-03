@@ -35,6 +35,13 @@ export const Battle = (props) => {
         damage: 35,
         image: "/images/attacks/lightning.png",
       },
+      {
+        id: 4,
+        name: "Fire Blast",
+        type: "fire",
+        damage: 30,
+        image: "/images/attacks/fireball.gif",
+      },
     ],
   });
   // defending pokemon obj
@@ -58,7 +65,7 @@ export const Battle = (props) => {
         name: "Fire Blast",
         type: "fire",
         damage: 30,
-        image: "/images/attacks/fireball.png",
+        image: "/images/attacks/fireball.gif",
       },
       {
         id: 3,
@@ -215,6 +222,58 @@ export const Battle = (props) => {
           y: +0,
         });
     }
+    if (attack.name.toLowerCase() === "fire blast") {
+      const tl = gsap.timeline();
+      tl.to(playerPokemonRef.current, {
+        x: -0,
+        duration: 0,
+      })
+        .to(playerPokemonRef.current, {
+          x: +25,
+          duration: 0.15,
+          onComplete: () => {
+            gsap.from(getRef("Fire Blast").current, {
+              y: 300,
+              x: -700,
+              duration: 0.8,
+              autoAlpha: 1,
+              onComplete: () => {
+                // enemy gets hit here
+                if (enemyPokemon.hp - attack.damage < 0) {
+                  gsap.to(enemyHpRef.current, {
+                    width: 0 + "%",
+                  });
+                } else {
+                  gsap.to(enemyHpRef.current, {
+                    width: enemyPokemon.hp - attack.damage + "%",
+                  });
+                }
+
+                // modify pokemon hp on attack hit during the animation
+                enemyPokemon.hp = enemyPokemon.hp - attack.damage;
+                setEnemyPokemon({ ...enemyPokemon });
+
+                gsap.to(enemyPokemonRef.current, {
+                  x: 15,
+                  yoyo: true,
+                  repeat: 5,
+                  duration: 0.08,
+                });
+
+                gsap.to(enemyPokemonRef.current, {
+                  opacity: 0,
+                  repeat: 5,
+                  yoyo: true,
+                  duration: 0.08,
+                });
+              },
+            });
+          },
+        })
+        .to(playerPokemonRef.current, {
+          x: +0,
+        });
+    }
   };
 
   // clears dialogue queue
@@ -269,7 +328,7 @@ export const Battle = (props) => {
           {playerPokemon.attacks.map((attack) =>
             attack.image ? (
               <img
-                className="asset-image"
+                className={"asset-image"}
                 key={"asset" + attack.id}
                 src={attack.image}
                 ref={setRef(attack.name)}
