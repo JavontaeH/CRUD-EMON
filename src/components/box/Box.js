@@ -36,11 +36,13 @@ export const Box = ({ isAuthenticated }) => {
       .addPokemon(pokemon)
       .then((res) => {
         pokemonAttacks.forEach((attack) => {
-          const pokemonAttacksObj = {
-            pokemonId: res.id,
-            attackId: attack.attackId,
-          };
-          addAnAttack(pokemonAttacksObj);
+          if (attack.attackId !== 0) {
+            const pokemonAttacksObj = {
+              pokemonId: res.id,
+              attackId: attack.attackId,
+            };
+            addAnAttack(pokemonAttacksObj);
+          }
         });
       })
       .then(() => get.allPokemon().then(setPokemon));
