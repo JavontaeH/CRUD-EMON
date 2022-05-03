@@ -131,42 +131,43 @@ export const Battle = (props) => {
           x: +25,
           duration: 0.15,
           onComplete: () => {
-            // enemy gets hit here
-            if (enemyPokemon.hp - attack.damage < 0) {
-              gsap.to(enemyHpRef.current, {
-                width: 0 + "%",
-              });
-            } else {
-              gsap.to(enemyHpRef.current, {
-                width: enemyPokemon.hp - attack.damage + "%",
-              });
-            }
-
-            // modify pokemon hp on attack hit during the animation
-            enemyPokemon.hp = enemyPokemon.hp - attack.damage;
-            setEnemyPokemon({ ...enemyPokemon });
-
-            gsap.to(getRef("Thunder").current, {
-              duration: 0.2,
+            gsap.from(getRef("Thunder").current, {
+              y: -250,
+              duration: 0.8,
               autoAlpha: 1,
-              delay: 0,
-            });
+              onComplete: () => {
+                // enemy gets hit here
+                if (enemyPokemon.hp - attack.damage < 0) {
+                  gsap.to(enemyHpRef.current, {
+                    width: 0 + "%",
+                  });
+                } else {
+                  gsap.to(enemyHpRef.current, {
+                    width: enemyPokemon.hp - attack.damage + "%",
+                  });
+                }
 
-            gsap.to(enemyPokemonRef.current, {
-              x: 15,
-              yoyo: true,
-              repeat: 5,
-              duration: 0.08,
-            });
+                // modify pokemon hp on attack hit during the animation
+                enemyPokemon.hp = enemyPokemon.hp - attack.damage;
+                setEnemyPokemon({ ...enemyPokemon });
+                gsap.to(enemyPokemonRef.current, {
+                  x: 15,
+                  yoyo: true,
+                  repeat: 5,
+                  duration: 0.08,
+                });
 
-            gsap.to(enemyPokemonRef.current, {
-              opacity: 0,
-              repeat: 5,
-              yoyo: true,
-              duration: 0.08,
+                gsap.to(enemyPokemonRef.current, {
+                  opacity: 0,
+                  repeat: 5,
+                  yoyo: true,
+                  duration: 0.08,
+                });
+              },
             });
           },
         })
+
         .to(playerPokemonRef.current, {
           x: +0,
         });
