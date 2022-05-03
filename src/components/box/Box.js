@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as get from "../../modules/pokemonManager.js";
+import { addAnAttack } from "../../modules/movesManager.js";
 import { PokemonCard } from "./PokemonCard.js";
 import Navigate, { useNavigate } from "react-router-dom";
 import { CreatePokemonPopup } from "./CreatePokemonPopup.js";
@@ -29,8 +30,20 @@ export const Box = ({ isAuthenticated }) => {
       .then(() => get.allPokemon().then(setPokemon).then(setSelectedPokemon));
   };
 
-  const createPokemon = (pokemon) => {
-    get.addPokemon(pokemon).then(() => get.allPokemon().then(setPokemon));
+  const createPokemon = (pokemon, pokemonAttacks) => {
+    console.log(pokemonAttacks);
+    get
+      .addPokemon(pokemon)
+      .then((res) => {
+        pokemonAttacks.forEach((attack) => {
+          const pokemonAttacksObj = {
+            pokemonId: res.id,
+            attackId: attack.attackId,
+          };
+          addAnAttack(pokemonAttacksObj);
+        });
+      })
+      .then(() => get.allPokemon().then(setPokemon));
   };
 
   const editPokemon = (pokemon) => {
@@ -86,7 +99,7 @@ export const Box = ({ isAuthenticated }) => {
   };
 
   // event handler for create pokemon with conditionals, should be in the component tbh, but would require refactoring.
-  const handleCreatePokemon = (pokemon) => {
+  const handleCreatePokemon = (pokemon, pokemonAttacks) => {
     if (
       pokemon.frontImg.startsWith("http") === false ||
       pokemon.backImg.startsWith("http") === false
@@ -99,7 +112,7 @@ export const Box = ({ isAuthenticated }) => {
       return;
     } else {
       toggleCreatePopup();
-      createPokemon(pokemon);
+      createPokemon(pokemon, pokemonAttacks);
     }
   };
 

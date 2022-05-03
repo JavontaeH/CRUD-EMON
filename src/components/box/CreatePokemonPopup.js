@@ -48,7 +48,10 @@ export const CreatePokemonPopup = (props) => {
   };
 
   const handleAttacksChange = (evt) => {
-    console.log(evt);
+    const stateToChange = { ...pokemonAttacks };
+    stateToChange[evt.target.id] = parseInt(evt.target.value);
+    setPokemonAttacks([stateToChange]);
+    console.log(pokemonAttacks);
   };
 
   return (
@@ -99,8 +102,8 @@ export const CreatePokemonPopup = (props) => {
             ))}
           </select>
           <label htmlFor="type">Pokemon Attack 1:</label>
-          <select id="attack" defaultValue="N/A" onChange={handleAttacksChange}>
-            <option>N/A</option>
+          <select id="attackId" defaultValue="0" onChange={handleAttacksChange}>
+            <option value={"0"}>N/A</option>
             {attacks.map((attack) =>
               createdPokemon.type === attack.type ||
               attack.type === "normal" ? (
@@ -119,7 +122,9 @@ export const CreatePokemonPopup = (props) => {
           <div className="popup-buttons">
             <span
               className="create-popup-icon"
-              onClick={() => props.handleCreatePokemon(createdPokemon)}
+              onClick={() =>
+                props.handleCreatePokemon(createdPokemon, pokemonAttacks)
+              }
             >
               <h3>Create</h3>
             </span>
