@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import * as fetch from "../../modules/movesManager.js";
 import "./Popup.css";
 
 export const CreatePokemonPopup = (props) => {
@@ -10,6 +11,14 @@ export const CreatePokemonPopup = (props) => {
     type: "normal",
     hp: 100,
   });
+
+  const [attacks, setAttacks] = useState([]);
+
+  const [pokemonAttacks, setPokemonAttacks] = useState([]);
+
+  useEffect(() => {
+    fetch.getAllAttacks().then((attacks) => setAttacks(attacks));
+  }, []);
 
   const arrOfTypes = [
     "normal",
@@ -36,6 +45,10 @@ export const CreatePokemonPopup = (props) => {
     const stateToChange = { ...createdPokemon };
     stateToChange[evt.target.id] = evt.target.value;
     setCreatedPokemon(stateToChange);
+  };
+
+  const handleAttacksChange = (evt) => {
+    console.log(evt);
   };
 
   return (
@@ -84,6 +97,24 @@ export const CreatePokemonPopup = (props) => {
                 {type}
               </option>
             ))}
+          </select>
+          <label htmlFor="type">Pokemon Attack 1:</label>
+          <select id="attack" defaultValue="N/A" onChange={handleAttacksChange}>
+            <option>N/A</option>
+            {attacks.map((attack) =>
+              createdPokemon.type === attack.type ||
+              attack.type === "normal" ? (
+                <option
+                  key={attack.id}
+                  value={attack.id}
+                  id="type-dropdown-value"
+                >
+                  {attack.name}
+                </option>
+              ) : (
+                ""
+              )
+            )}
           </select>
           <div className="popup-buttons">
             <span
