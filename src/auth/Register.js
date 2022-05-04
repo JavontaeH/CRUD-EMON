@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./Login.css";
 
-export const Register = () => {
+export const Register = ({ setAuthUser }) => {
   const [registerUser, setRegisterUser] = useState({
     firstName: "",
     lastName: "",
@@ -47,6 +47,7 @@ export const Register = () => {
             if (createdUser.hasOwnProperty("id")) {
               // The user id is saved under the key poke_user in session Storage. Change below if needed!
               sessionStorage.setItem("poke_user", createdUser.id);
+              setAuthUser(createdUser.id);
               navigate("/menu");
             }
           });

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Ash",
-      "Email": "ashketchum@kanto.com"
+      "email": "ashketchum@kanto.com"
     }
   ],
   "pokemon": [
@@ -79,22 +79,27 @@
     {
       "id": 2,
       "pokemonId": 4,
-      "attackId": 1
+      "attackId": 2
     },
     {
       "id": 3,
       "pokemonId": 3,
-      "attackId": 4
+      "attackId": 1
     },
     {
       "id": 4,
       "pokemonId": 3,
-      "attackId": 1
+      "attackId": 4
     },
     {
       "pokemonId": 3,
       "attackId": 3,
       "id": 6
+    },
+    {
+      "pokemonId": 4,
+      "attackId": 0,
+      "id": 7
     }
   ]
 }

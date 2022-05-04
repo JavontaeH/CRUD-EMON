@@ -163,7 +163,7 @@ export const EditPokemonPopup = (props) => {
           </select>
           <label htmlFor="type">Pokemon Attack 1:</label>
           <select
-            key={`${Math.floor(Math.random() * 1000)}-min`}
+            key={`${Math.floor(Math.random() * 100000)}-min`}
             id="0"
             defaultValue={pokemonAttacks[0]?.attackId}
             onChange={handleAttacksChange}
@@ -182,7 +182,7 @@ export const EditPokemonPopup = (props) => {
           <label htmlFor="type">Pokemon Attack 2:</label>
           <select
             id="1"
-            key={`${Math.floor(Math.random() * 1000)}-min`}
+            key={`${Math.floor(Math.random() * 100000)}-min`}
             defaultValue={pokemonAttacks[1]?.attackId}
             onChange={handleAttacksChange}
           >
@@ -200,7 +200,7 @@ export const EditPokemonPopup = (props) => {
           <label htmlFor="type">Pokemon Attack 3:</label>
           <select
             id="2"
-            key={`${Math.floor(Math.random() * 1000)}-min`}
+            key={`${Math.floor(Math.random() * 100000)}-min`}
             defaultValue={pokemonAttacks[2]?.attackId}
             onChange={handleAttacksChange}
           >
@@ -218,7 +218,7 @@ export const EditPokemonPopup = (props) => {
           <label htmlFor="type">Pokemon Attack 4:</label>
           <select
             id="3"
-            key={`${Math.floor(Math.random() * 1000)}-min`}
+            key={`${Math.floor(Math.random() * 100000)}-min`}
             defaultValue={pokemonAttacks[3]?.attackId}
             onChange={handleAttacksChange}
           >

@@ -33,7 +33,10 @@ export const ApplicationViews = ({
           element={<Box isAuthenticated={isAuthenticated} />}
         />
         <Route path="/login" element={<Login setAuthUser={setAuthUser} />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/register"
+          element={<Register setAuthUser={setAuthUser} />}
+        />
       </Routes>
     </>
   );
