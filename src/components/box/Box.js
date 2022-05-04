@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as get from "../../modules/pokemonManager.js";
-import { addAnAttack } from "../../modules/movesManager.js";
+import { addAnAttack, editPokemonAttack } from "../../modules/movesManager.js";
 import { PokemonCard } from "./PokemonCard.js";
 import Navigate, { useNavigate } from "react-router-dom";
 import { CreatePokemonPopup } from "./CreatePokemonPopup.js";
@@ -48,15 +48,30 @@ export const Box = ({ isAuthenticated }) => {
       .then(() => get.allPokemon().then(setPokemon));
   };
 
-  const editPokemon = (pokemon) => {
-    get.editPokemon(pokemon).then(() =>
-      get
-        .allPokemon()
-        .then((pokemon) => {
-          setPokemon(pokemon);
-        })
-        .then(() => setSelectedPokemon(pokemon))
-    );
+  const editPokemon = (pokemon, pokemonAttacks) => {
+    get
+      .editPokemon(pokemon)
+      .then((res) => {
+        pokemonAttacks.forEach((attack) => {
+          if (!attack.id) {
+            const pokemonAttacksObj = {
+              pokemonId: res.id,
+              attackId: attack.attackId,
+            };
+            addAnAttack(pokemonAttacksObj);
+          } else {
+            editPokemonAttack(attack);
+          }
+        });
+      })
+      .then(() =>
+        get
+          .allPokemon()
+          .then((pokemon) => {
+            setPokemon(pokemon);
+          })
+          .then(() => setSelectedPokemon(pokemon))
+      );
   };
 
   useEffect(() => {

@@ -90,6 +90,16 @@
       "id": 4,
       "pokemonId": 3,
       "attackId": 1
+    },
+    {
+      "pokemonId": 4,
+      "attackId": 3,
+      "id": 5
+    },
+    {
+      "pokemonId": 3,
+      "attackId": 3,
+      "id": 6
     }
   ]
 }
