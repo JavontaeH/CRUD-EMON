@@ -42,24 +42,6 @@
       "type": "electric",
       "hp": 100,
       "id": 4
-    },
-    {
-      "userId": 1,
-      "name": "pikaboo",
-      "frontImg": "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
-      "backImg": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
-      "type": "electric",
-      "hp": 100,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "name": "poop",
-      "frontImg": "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
-      "backImg": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
-      "type": "grass",
-      "hp": 100,
-      "id": 6
     }
   ],
   "attacks": [
@@ -110,29 +92,9 @@
       "attackId": 1
     },
     {
-      "pokemonId": 4,
-      "attackId": 0,
-      "id": 5
-    },
-    {
       "pokemonId": 3,
       "attackId": 3,
       "id": 6
-    },
-    {
-      "pokemonId": 4,
-      "attackId": 0,
-      "id": 7
-    },
-    {
-      "pokemonId": 5,
-      "attackId": 1,
-      "id": 8
-    },
-    {
-      "pokemonId": 5,
-      "attackId": 2,
-      "id": 9
     }
   ]
 }

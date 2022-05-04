@@ -14,7 +14,12 @@ export const CreatePokemonPopup = (props) => {
 
   const [attacks, setAttacks] = useState([]);
 
-  const [pokemonAttacks, setPokemonAttacks] = useState([{ attackId: 0 }]);
+  const [pokemonAttacks, setPokemonAttacks] = useState([
+    { attackId: 0 },
+    { attackId: 0 },
+    { attackId: 0 },
+    { attackId: 0 },
+  ]);
 
   useEffect(() => {
     fetch.getAllAttacks().then((attacks) => setAttacks(attacks));
@@ -111,74 +116,54 @@ export const CreatePokemonPopup = (props) => {
             onChange={handleAttacksChange}
           >
             <option value={"0"}>N/A</option>
-            {attacks.map((attack) =>
-              createdPokemon.type === attack.type ||
-              attack.type === "normal" ? (
-                <option
-                  key={attack.id}
-                  value={attack.id}
-                  id="type-dropdown-value"
-                >
-                  {attack.name}
-                </option>
-              ) : (
-                ""
-              )
-            )}
+            {attacks.map((attack) => (
+              <option
+                key={attack.id}
+                value={attack.id}
+                id="type-dropdown-value"
+              >
+                {attack.name}
+              </option>
+            ))}
           </select>
           <label htmlFor="type">Pokemon Attack 2:</label>
           <select id="1" defaultValue="0" onChange={handleAttacksChange}>
             <option value={"0"}>N/A</option>
-            {attacks.map((attack) =>
-              createdPokemon.type === attack.type ||
-              attack.type === "normal" ? (
-                <option
-                  key={attack.id}
-                  value={attack.id}
-                  id="type-dropdown-value"
-                >
-                  {attack.name}
-                </option>
-              ) : (
-                ""
-              )
-            )}
+            {attacks.map((attack) => (
+              <option
+                key={attack.id}
+                value={attack.id}
+                id="type-dropdown-value"
+              >
+                {attack.name}
+              </option>
+            ))}
           </select>
           <label htmlFor="type">Pokemon Attack 3:</label>
           <select id="2" defaultValue="0" onChange={handleAttacksChange}>
             <option value={"0"}>N/A</option>
-            {attacks.map((attack) =>
-              createdPokemon.type === attack.type ||
-              attack.type === "normal" ? (
-                <option
-                  key={attack.id}
-                  value={attack.id}
-                  id="type-dropdown-value"
-                >
-                  {attack.name}
-                </option>
-              ) : (
-                ""
-              )
-            )}
+            {attacks.map((attack) => (
+              <option
+                key={attack.id}
+                value={attack.id}
+                id="type-dropdown-value"
+              >
+                {attack.name}
+              </option>
+            ))}
           </select>
           <label htmlFor="type">Pokemon Attack 4:</label>
           <select id="3" defaultValue="0" onChange={handleAttacksChange}>
             <option value={"0"}>N/A</option>
-            {attacks.map((attack) =>
-              createdPokemon.type === attack.type ||
-              attack.type === "normal" ? (
-                <option
-                  key={attack.id}
-                  value={attack.id}
-                  id="type-dropdown-value"
-                >
-                  {attack.name}
-                </option>
-              ) : (
-                ""
-              )
-            )}
+            {attacks.map((attack) => (
+              <option
+                key={attack.id}
+                value={attack.id}
+                id="type-dropdown-value"
+              >
+                {attack.name}
+              </option>
+            ))}
           </select>
           <div className="popup-buttons">
             <span

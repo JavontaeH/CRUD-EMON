@@ -73,21 +73,21 @@ export const EditPokemonPopup = (props) => {
   };
 
   const handleEditPokemon = () => {
-    // const uniqueValues = new Set(pokemonAttacks.map((v) => v.name));
-    // let filteredPokemonAttacks = pokemonAttacks.filter(function (el) {
-    //   return el.attackId != 0;
-    // });
+    const uniqueValues = new Set(pokemonAttacks.map((v) => v.attackId));
+    let filteredPokemonAttacks = pokemonAttacks.filter(function (el) {
+      return el.attackId != 0;
+    });
 
-    // if (filteredPokemonAttacks.length <= 0) {
-    //   alert("You must choose at least one attack.");
-    //   return;
-    // }
-    // if (uniqueValues.size < filteredPokemonAttacks.length) {
-    //   alert(
-    //     "You don't have to have 4 attacks, but you can only select the same attack once."
-    //   );
-    //   return;
-    // }
+    if (filteredPokemonAttacks.length <= 0) {
+      alert("You must choose at least one attack.");
+      return;
+    }
+    if (uniqueValues.size < filteredPokemonAttacks.length) {
+      alert(
+        "You don't have to have 4 attacks, but you can only select the same attack once."
+      );
+      return;
+    }
     if (
       editedPokemon.frontImg.startsWith("http") === false ||
       editedPokemon.backImg.startsWith("http") === false
@@ -169,19 +169,15 @@ export const EditPokemonPopup = (props) => {
             onChange={handleAttacksChange}
           >
             <option value="0">N/A</option>
-            {attacks.map((attack) =>
-              editedPokemon.type === attack.type || attack.type === "normal" ? (
-                <option
-                  key={attack.id}
-                  value={attack.id}
-                  id="type-dropdown-value"
-                >
-                  {attack.name}
-                </option>
-              ) : (
-                ""
-              )
-            )}
+            {attacks.map((attack) => (
+              <option
+                key={attack.id}
+                value={attack.id}
+                id="type-dropdown-value"
+              >
+                {attack.name}
+              </option>
+            ))}
           </select>
           <label htmlFor="type">Pokemon Attack 2:</label>
           <select
@@ -191,19 +187,15 @@ export const EditPokemonPopup = (props) => {
             onChange={handleAttacksChange}
           >
             <option value={"0"}>N/A</option>
-            {attacks.map((attack) =>
-              editedPokemon.type === attack.type || attack.type === "normal" ? (
-                <option
-                  key={attack.id}
-                  value={attack.id}
-                  id="type-dropdown-value"
-                >
-                  {attack.name}
-                </option>
-              ) : (
-                ""
-              )
-            )}
+            {attacks.map((attack) => (
+              <option
+                key={attack.id}
+                value={attack.id}
+                id="type-dropdown-value"
+              >
+                {attack.name}
+              </option>
+            ))}
           </select>
           <label htmlFor="type">Pokemon Attack 3:</label>
           <select
@@ -231,19 +223,15 @@ export const EditPokemonPopup = (props) => {
             onChange={handleAttacksChange}
           >
             <option value={"0"}>N/A</option>
-            {attacks.map((attack) =>
-              editedPokemon.type === attack.type || attack.type === "normal" ? (
-                <option
-                  key={attack.id}
-                  value={attack.id}
-                  id="type-dropdown-value"
-                >
-                  {attack.name}
-                </option>
-              ) : (
-                ""
-              )
-            )}
+            {attacks.map((attack) => (
+              <option
+                key={attack.id}
+                value={attack.id}
+                id="type-dropdown-value"
+              >
+                {attack.name}
+              </option>
+            ))}
           </select>
           <div className="popup-buttons">
             <span

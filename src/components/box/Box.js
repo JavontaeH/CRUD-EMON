@@ -117,7 +117,7 @@ export const Box = ({ isAuthenticated }) => {
 
   // event handler for create pokemon with conditionals, should be in the component tbh, but would require refactoring.
   const handleCreatePokemon = (pokemon, pokemonAttacks) => {
-    const uniqueValues = new Set(pokemonAttacks.map((v) => v.name));
+    const uniqueValues = new Set(pokemonAttacks.map((v) => v.attackId));
     let filteredPokemonAttacks = pokemonAttacks.filter(function (el) {
       return el.attackId != 0;
     });
