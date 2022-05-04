@@ -21,6 +21,7 @@ export const getPokemonAttacks = (pokemonId) => {
 };
 
 export const editPokemonAttack = (obj) => {
+  console.log(obj);
   return fetch(`${remoteURL}/pokemonAttacks/${obj.id}`, {
     method: "PATCH",
     headers: {

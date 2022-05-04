@@ -36,19 +36,18 @@ export const Box = ({ isAuthenticated }) => {
       .addPokemon(pokemon)
       .then((res) => {
         pokemonAttacks.forEach((attack) => {
-          if (attack.attackId !== 0) {
-            const pokemonAttacksObj = {
-              pokemonId: res.id,
-              attackId: attack.attackId,
-            };
-            addAnAttack(pokemonAttacksObj);
-          }
+          const pokemonAttacksObj = {
+            pokemonId: res.id,
+            attackId: attack.attackId,
+          };
+          addAnAttack(pokemonAttacksObj);
         });
       })
       .then(() => get.allPokemon().then(setPokemon));
   };
 
   const editPokemon = (pokemon, pokemonAttacks) => {
+    let editPromArr = [];
     get
       .editPokemon(pokemon)
       .then((res) => {
@@ -60,7 +59,8 @@ export const Box = ({ isAuthenticated }) => {
             };
             addAnAttack(pokemonAttacksObj);
           } else {
-            editPokemonAttack(attack);
+            editPromArr.push(editPokemonAttack(attack));
+            return Promise.all(editPromArr);
           }
         });
       })
