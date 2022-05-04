@@ -102,6 +102,20 @@ export const Box = ({ isAuthenticated }) => {
 
   // event handler for create pokemon with conditionals, should be in the component tbh, but would require refactoring.
   const handleCreatePokemon = (pokemon, pokemonAttacks) => {
+    const uniqueValues = new Set(pokemonAttacks.map((v) => v.name));
+    let filteredPokemonAttacks = pokemonAttacks.filter(function (el) {
+      return el.attackId != 0;
+    });
+    if (filteredPokemonAttacks.length <= 0) {
+      alert("You must choose at least one attack.");
+      return;
+    }
+    if (uniqueValues.size < filteredPokemonAttacks.length) {
+      alert(
+        "You don't have to have 4 attacks, but you can only select the same attack once."
+      );
+      return;
+    }
     if (
       pokemon.frontImg.startsWith("http") === false ||
       pokemon.backImg.startsWith("http") === false

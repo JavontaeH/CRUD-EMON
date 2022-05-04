@@ -20,17 +20,6 @@ export const CreatePokemonPopup = (props) => {
     fetch.getAllAttacks().then((attacks) => setAttacks(attacks));
   }, []);
 
-  useEffect(() => {
-    let pokemonAttackIds = [];
-    pokemonAttacks.forEach((attack) => {
-      pokemonAttackIds.push(attack.attackId);
-    });
-    let filteredAttacks = attacks.filter((attack) => {
-      return !pokemonAttackIds.includes(attack.id);
-    });
-    setAttacks(filteredAttacks);
-  }, [pokemonAttacks]);
-
   const arrOfTypes = [
     "normal",
     "fire",
