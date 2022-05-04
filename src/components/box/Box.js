@@ -262,7 +262,7 @@ export const Box = ({ isAuthenticated }) => {
                 <h3>Show All Pokemon</h3>
               </div>
             )}
-            <div className="close-button" onClick={() => navigate("/menu")}>
+            <div className="close-button" onClick={() => navigate("/")}>
               <h3>Close Box</h3>
             </div>
           </div>

@@ -7,7 +7,7 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
 
   const handleLogout = () => {
     clearUser();
-    navigate("/menu");
+    navigate("/");
   };
 
   // ternary shows diff buttons if not logged in

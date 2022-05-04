@@ -12,31 +12,34 @@ export const ApplicationViews = ({
   clearUser,
 }) => {
   const PrivateOutlet = () => {
-    return isAuthenticated ? <Outlet /> : <Navigate to="/menu" />;
+    return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
   };
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<PrivateOutlet />}>
-          <Route path="battle" element={<Battle />} />
-        </Route>
-
         <Route
-          path="/menu"
+          exact
+          path="/"
           element={
             <MainMenu isAuthenticated={isAuthenticated} clearUser={clearUser} />
           }
         />
+
         <Route
           path="/box"
           element={<Box isAuthenticated={isAuthenticated} />}
         />
         <Route path="/login" element={<Login setAuthUser={setAuthUser} />} />
+
         <Route
           path="/register"
           element={<Register setAuthUser={setAuthUser} />}
         />
+
+        <Route path="/" element={<PrivateOutlet />}>
+          <Route path="battle" element={<Battle />} />
+        </Route>
       </Routes>
     </>
   );
