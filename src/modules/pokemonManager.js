@@ -1,7 +1,7 @@
 const remoteURL = "http://localhost:8088";
 
 export const allPokemon = (currentUserId) => {
-  return fetch(`${remoteURL}/pokemon/?_expand=user`).then((res) => res.json());
+  return fetch(`${remoteURL}/pokemon/`).then((res) => res.json());
 };
 
 export const deletePokemon = (id) => {

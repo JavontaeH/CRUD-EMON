@@ -45,12 +45,41 @@ export const CharSelection = () => {
   }, [playerPokemon, enemyPokemon]);
 
   const handlePlayClicked = () => {
-    navigate("/battle", {
-      playerPokemon: playerPokemon,
-      enemyPokemon: enemyPokemon,
-      setPlayerPokemon: setPlayerPokemon,
-      setEnemyPokemon: setEnemyPokemon,
-    });
+    fetch
+      .getPokemonAttacks(playerPokemon.id)
+      .then((pokemonAttacks) => {
+        let playerPokemonWithAttacks = { ...playerPokemon };
+        let attacksArr = [];
+        pokemonAttacks.forEach((attack) => {
+          if (attack.attack) {
+            attacksArr.push(attack.attack);
+          }
+        });
+        playerPokemonWithAttacks.attacks = attacksArr;
+        sessionStorage.setItem(
+          "playerPokemon",
+          JSON.stringify(playerPokemonWithAttacks)
+        );
+      })
+      .then(() => {
+        fetch.getPokemonAttacks(enemyPokemon.id).then((pokemonAttacks) => {
+          let enemyPokemonWithAttacks = { ...enemyPokemon };
+          let attacksArr = [];
+          pokemonAttacks.forEach((attack) => {
+            if (attack.attack) {
+              attacksArr.push(attack.attack);
+            }
+          });
+          enemyPokemonWithAttacks.attacks = attacksArr;
+          sessionStorage.setItem(
+            "enemyPokemon",
+            JSON.stringify(enemyPokemonWithAttacks)
+          );
+        });
+      })
+      .then(() => {
+        navigate("/battle");
+      });
   };
 
   return (
