@@ -39,6 +39,8 @@ export const CharSelection = () => {
             handlePokemonClick={handlePokemonClick}
             playerPokemon={playerPokemon}
             enemyPokemon={enemyPokemon}
+            setPlayerPokemon={setPlayerPokemon}
+            setEnemyPokemon={setEnemyPokemon}
           />
         ))}
       </div>
