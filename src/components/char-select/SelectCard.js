@@ -5,16 +5,15 @@ export const SelectCard = ({ pokemon, handlePokemonClick }) => {
         className="select-card-wrapper"
         //   onClick={() => handlePokemonClick(pokemon)}
       >
-        <div className="select-card-top-content">
-          <img src={pokemon.frontImg} />
-          <h2>{pokemon.name}</h2>
+        <div className="pokemon-card-content">
+          <img className="select-pkmn-image" src={pokemon.frontImg} />
+          <h1>{pokemon.name}</h1>
         </div>
-        <div className="select-card-bottom-content">
-          <img
-            src={`images/pokemon/types/${pokemon.type}.png`}
-            alt={pokemon?.type}
-          />
-        </div>
+        <img
+          className="select-pkmn-type"
+          src={`images/pokemon/types/${pokemon.type}.png`}
+          alt={pokemon?.type}
+        />
       </div>
     </div>
   );

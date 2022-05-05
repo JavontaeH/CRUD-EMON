@@ -24,6 +24,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     align-content: start;
+
 }
 
 .select-pokemon-wrapper::-webkit-scrollbar {
@@ -36,21 +37,47 @@
     border: 4px solid #004800;
     margin: .33em;
     padding: .5em;
-    min-width: 32.5%;
-    min-height: 25%;
-    height: 1px;
+    min-height: 200px;
     cursor: pointer;
+    flex: 0 0 32.56%;
+    display: flex;
+
+
 }
 
 .select-card-wrapper {
     background: #009038;
     min-width: 100%;
     min-height: 100%;
+    position: relative;
 
 }
 
-.select-card-wrapper h2 {
-    margin: 0;
+.select-card-wrapper h1 {
+
     color: white;
     filter: drop-shadow(0 0 0.3rem black);
+    margin: 0;
+    margin-top: 1em;
+    margin-right: 0.5em;
+
+}
+
+.pokemon-card-content {
+    display: flex;
+}
+
+.select-pkmn-image {
+    height: 150px;
+    width: 150px;
+    margin: 0.5em;
+}
+
+.select-pkmn-type {
+    height: 50px;
+    width: 75px;
+    position: absolute;
+    left: 28%;
+    top: 35%;
+    transform: translate(28%, 35%);
 }
