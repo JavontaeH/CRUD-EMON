@@ -15,6 +15,16 @@ export const CharSelection = () => {
     });
   };
 
+  const handlePokemonClick = (pokemon) => {
+    // watching for pokemon click and if it was the one already clicked
+
+    if (!playerPokemon) {
+      setPlayerPokemon(pokemon);
+    } else if (!enemyPokemon) {
+      setEnemyPokemon(pokemon);
+    }
+  };
+
   useEffect(() => {
     getPokemon();
   }, []);
@@ -23,7 +33,13 @@ export const CharSelection = () => {
     <div className="char-select-page-wrapper">
       <div className="select-pokemon-wrapper">
         {pokemon.map((pokeman) => (
-          <SelectCard pokemon={pokeman} key={pokeman.id} />
+          <SelectCard
+            pokemon={pokeman}
+            key={pokeman.id}
+            handlePokemonClick={handlePokemonClick}
+            playerPokemon={playerPokemon}
+            enemyPokemon={enemyPokemon}
+          />
         ))}
       </div>
     </div>
