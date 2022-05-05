@@ -29,6 +29,10 @@
     height: 80%;
 }
 
+.user-pokemon img {
+    transform: scale(1)
+}
+
 .enemy-pokemon-wrapper {
     top: -2%;
     left: 105%;
@@ -45,6 +49,10 @@
     justify-content: center;
     width: 80%;
     height: 80%;
+}
+
+.enemy-pokemon img {
+    transform: scale(1)
 }
 
 

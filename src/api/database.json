@@ -8,40 +8,22 @@
   ],
   "pokemon": [
     {
-      "id": 1,
       "userId": 1,
       "name": "Ember",
       "frontImg": "/images/pokemon/local-mon/ember/front.png",
       "backImg": "/images/pokemon/local-mon/ember/back.png",
       "type": "fire",
-      "hp": 100
+      "hp": 100,
+      "id": 1
     },
     {
-      "id": 2,
       "userId": 1,
-      "name": "Draggle",
+      "name": "Draggy",
       "frontImg": "/images/pokemon/local-mon/dragon/front.png",
       "backImg": "/images/pokemon/local-mon/dragon/back.png",
       "type": "dragon",
-      "hp": 100
-    },
-    {
-      "userId": 1,
-      "name": "Charizard",
-      "frontImg": "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
-      "backImg": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif",
-      "type": "fire",
       "hp": 100,
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "name": "Pikachu",
-      "frontImg": "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
-      "backImg": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
-      "type": "electric",
-      "hp": 100,
-      "id": 4
+      "id": 2
     }
   ],
   "attacks": [
@@ -55,7 +37,8 @@
       "id": 2,
       "name": "Thunder",
       "type": "electric",
-      "damage": 35
+      "damage": 35,
+      "image": "/images/attacks/lightning.png"
     },
     {
       "id": 3,
@@ -67,39 +50,50 @@
       "id": 4,
       "name": "Fire Blast",
       "type": "fire",
-      "damage": 30
+      "damage": 30,
+      "image": "/images/attacks/fireball.gif"
     }
   ],
   "pokemonAttacks": [
     {
-      "id": 1,
-      "pokemonId": 4,
-      "attackId": 1
+      "pokemonId": 1,
+      "attackId": 1,
+      "id": 1
     },
     {
-      "id": 2,
-      "pokemonId": 4,
-      "attackId": 2
+      "pokemonId": 1,
+      "attackId": 4,
+      "id": 2
     },
     {
-      "id": 3,
-      "pokemonId": 3,
-      "attackId": 1
+      "pokemonId": 1,
+      "attackId": 0,
+      "id": 3
     },
     {
-      "id": 4,
-      "pokemonId": 3,
-      "attackId": 4
+      "pokemonId": 1,
+      "attackId": 0,
+      "id": 4
     },
     {
-      "pokemonId": 3,
+      "pokemonId": 2,
+      "attackId": 1,
+      "id": 5
+    },
+    {
+      "pokemonId": 2,
       "attackId": 3,
       "id": 6
     },
     {
-      "pokemonId": 4,
+      "pokemonId": 2,
       "attackId": 0,
       "id": 7
+    },
+    {
+      "pokemonId": 2,
+      "attackId": 0,
+      "id": 8
     }
   ]
 }

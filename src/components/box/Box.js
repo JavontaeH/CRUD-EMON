@@ -131,13 +131,13 @@ export const Box = ({ isAuthenticated }) => {
       );
       return;
     }
-    if (
-      pokemon.frontImg.startsWith("http") === false ||
-      pokemon.backImg.startsWith("http") === false
-    ) {
-      alert("Please input a valid URL starting with http or https");
-      return;
-    }
+    // if (
+    //   pokemon.frontImg.startsWith("http") === false ||
+    //   pokemon.backImg.startsWith("http") === false
+    // ) {
+    //   alert("Please input a valid URL starting with http or https");
+    //   return;
+    // }
     if (pokemon.name.length > 10) {
       alert("You are limited to 10 characters for a name, Gen 1 Baby.");
       return;

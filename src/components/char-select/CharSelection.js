@@ -78,8 +78,12 @@ export const CharSelection = () => {
         });
       })
       .then(() => {
-        navigate("/battle");
+        setTimeout(initiateBattle, 1000);
       });
+  };
+
+  const initiateBattle = () => {
+    navigate("/battle");
   };
 
   return (

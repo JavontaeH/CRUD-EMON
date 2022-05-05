@@ -13,70 +13,20 @@ export const Battle = () => {
   const enemyHpRef = useRef();
   const playerHpRef = useRef();
   const battleScreenRef = useRef();
+  const [playerPokemon, setPlayerPokemon] = useState();
+  const [enemyPokemon, setEnemyPokemon] = useState();
 
-  // attacking pokemon obj
-  const [playerPokemon, setPlayerPokemon] = useState({
-    name: "Pikachu",
-    frontImg:
-      "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
-    backImg:
-      "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
-    type: "electric",
-    hp: 100,
-    attacks: [
-      {
-        id: 1,
-        name: "Tackle",
-        type: "normal",
-        damage: 20,
-      },
-      {
-        id: 2,
-        name: "Thunder",
-        type: "electric",
-        damage: 35,
-        image: "/images/attacks/lightning.png",
-      },
-      {
-        id: 4,
-        name: "Fire Blast",
-        type: "fire",
-        damage: 30,
-        image: "/images/attacks/fireball.gif",
-      },
-    ],
-  });
-  // defending pokemon obj
-  const [enemyPokemon, setEnemyPokemon] = useState({
-    name: "Charizard",
-    frontImg:
-      "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
-    backImg:
-      "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif",
-    hp: 100,
-    type: "fire",
-    attacks: [
-      {
-        id: 1,
-        name: "Tackle",
-        type: "normal",
-        damage: 20,
-      },
-      {
-        id: 4,
-        name: "Fire Blast",
-        type: "fire",
-        damage: 30,
-        image: "/images/attacks/fireball.gif",
-      },
-      {
-        id: 3,
-        name: "Earthquake",
-        type: "ground",
-        damage: 20,
-      },
-    ],
-  });
+  const getDataFromStorage = (dataKey) => {
+    //use JSON.parse()
+    return JSON.parse(sessionStorage.getItem(dataKey));
+  };
+
+  useEffect(() => {
+    // attacking pokemon obj
+    setPlayerPokemon(getDataFromStorage("playerPokemon"));
+    // defending pokemon obj
+    setEnemyPokemon(getDataFromStorage("enemyPokemon"));
+  }, []);
 
   // function for animating each attack using gsap animations
   const animate = (attack) => {
@@ -324,6 +274,7 @@ export const Battle = () => {
 
   // event handler for clicking pokemon attack
   const handleAttackClicked = (attack) => {
+    console.log(attack);
     animate(attack);
     setDialogueQueue(`${playerPokemon.name} Used ${attack.name}!`);
     setTimeout(turnSwap, 2500);
