@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import useDynamicRefs from "use-dynamic-refs";
 import "./Battle.css";
 
-export const Battle = (props) => {
+export const Battle = ({ route, navigation }) => {
   const [attackType, setAttackType] = useState("Attack Type");
   const [dialogueQueue, setDialogueQueue] = useState();
   const [getRef, setRef] = useDynamicRefs();
@@ -12,69 +12,73 @@ export const Battle = (props) => {
   const enemyHpRef = useRef();
   const playerHpRef = useRef();
   const battleScreenRef = useRef();
-  // attacking pokemon obj
-  const [playerPokemon, setPlayerPokemon] = useState({
-    name: "Pikachu",
-    frontImg:
-      "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
-    backImg:
-      "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
-    type: "electric",
-    hp: 100,
-    attacks: [
-      {
-        id: 1,
-        name: "Tackle",
-        type: "normal",
-        damage: 20,
-      },
-      {
-        id: 2,
-        name: "Thunder",
-        type: "electric",
-        damage: 35,
-        image: "/images/attacks/lightning.png",
-      },
-      {
-        id: 4,
-        name: "Fire Blast",
-        type: "fire",
-        damage: 30,
-        image: "/images/attacks/fireball.gif",
-      },
-    ],
-  });
-  // defending pokemon obj
-  const [enemyPokemon, setEnemyPokemon] = useState({
-    name: "Charizard",
-    frontImg:
-      "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
-    backImg:
-      "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif",
-    hp: 100,
-    type: "fire",
-    attacks: [
-      {
-        id: 1,
-        name: "Tackle",
-        type: "normal",
-        damage: 20,
-      },
-      {
-        id: 4,
-        name: "Fire Blast",
-        type: "fire",
-        damage: 30,
-        image: "/images/attacks/fireball.gif",
-      },
-      {
-        id: 3,
-        name: "Earthquake",
-        type: "ground",
-        damage: 20,
-      },
-    ],
-  });
+
+  const { playerPokemon, setPlayerPokemon, setEnemyPokemon, enemyPokemon } =
+    route.params;
+
+  // // attacking pokemon obj
+  // const [playerPokemon, setPlayerPokemon] = useState({
+  //   name: "Pikachu",
+  //   frontImg:
+  //     "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
+  //   backImg:
+  //     "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
+  //   type: "electric",
+  //   hp: 100,
+  //   attacks: [
+  //     {
+  //       id: 1,
+  //       name: "Tackle",
+  //       type: "normal",
+  //       damage: 20,
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "Thunder",
+  //       type: "electric",
+  //       damage: 35,
+  //       image: "/images/attacks/lightning.png",
+  //     },
+  //     {
+  //       id: 4,
+  //       name: "Fire Blast",
+  //       type: "fire",
+  //       damage: 30,
+  //       image: "/images/attacks/fireball.gif",
+  //     },
+  //   ],
+  // });
+  // // defending pokemon obj
+  // const [enemyPokemon, setEnemyPokemon] = useState({
+  //   name: "Charizard",
+  //   frontImg:
+  //     "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
+  //   backImg:
+  //     "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif",
+  //   hp: 100,
+  //   type: "fire",
+  //   attacks: [
+  //     {
+  //       id: 1,
+  //       name: "Tackle",
+  //       type: "normal",
+  //       damage: 20,
+  //     },
+  //     {
+  //       id: 4,
+  //       name: "Fire Blast",
+  //       type: "fire",
+  //       damage: 30,
+  //       image: "/images/attacks/fireball.gif",
+  //     },
+  //     {
+  //       id: 3,
+  //       name: "Earthquake",
+  //       type: "ground",
+  //       damage: 20,
+  //     },
+  //   ],
+  // });
 
   // function for animating each attack using gsap animations
   const animate = (attack) => {
@@ -340,15 +344,15 @@ export const Battle = (props) => {
     <div className="battle-wrapper" ref={battleScreenRef}>
       <div className="user-pokemon-wrapper">
         <div className="user-pokemon">
-          <img ref={playerPokemonRef} src={`${playerPokemon.backImg}`} />
+          <img ref={playerPokemonRef} src={`${playerPokemon?.backImg}`} />
         </div>
       </div>
       <div className="enemy-pokemon-wrapper">
         <div className="enemy-pokemon">
-          <img ref={enemyPokemonRef} src={`${enemyPokemon.frontImg}`} />
+          <img ref={enemyPokemonRef} src={`${enemyPokemon?.frontImg}`} />
         </div>
         <div className="attack-assets">
-          {playerPokemon.attacks.map((attack) =>
+          {playerPokemon?.attacks.map((attack) =>
             attack.image ? (
               <img
                 className={"asset-image"}
@@ -363,14 +367,14 @@ export const Battle = (props) => {
         </div>
       </div>
       <div className="enemy-health-interface-wrapper">
-        <h2>{`${enemyPokemon.name}`}</h2>
+        <h2>{`${enemyPokemon?.name}`}</h2>
         <div className="enemy-hp-wrapper">
           <div className="enemy-hp-grey"></div>
           <div className="enemy-hp-green" ref={enemyHpRef}></div>
         </div>
       </div>
       <div className="player-health-interface-wrapper">
-        <h2>{`${playerPokemon.name}`}</h2>
+        <h2>{`${playerPokemon?.name}`}</h2>
         <div className="player-hp-wrapper">
           <div className="player-hp-grey"></div>
           <div className="player-hp-green" ref={playerHpRef}></div>
@@ -382,7 +386,7 @@ export const Battle = (props) => {
         ) : (
           <>
             <div className="attack-options">
-              {playerPokemon.attacks.map((attack) => (
+              {playerPokemon?.attacks.map((attack) => (
                 <button
                   key={attack.id}
                   onMouseEnter={() => handleOnHover(attack.type)}

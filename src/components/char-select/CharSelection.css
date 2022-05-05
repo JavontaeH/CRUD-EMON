@@ -4,6 +4,7 @@
     background-color: #48C0C8;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .select-pokemon-wrapper {
@@ -117,4 +118,54 @@
     left: 28%;
     top: 35%;
     transform: translate(28%, 35%);
+}
+
+.select-text {
+    position: absolute;
+    background: #FFFFFF;
+    border: 4px solid #607078;
+    width: 70%;
+    height: 15%;
+    top: 95%;
+    left: 2%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transform: translate(-2%, -95%);
+
+}
+
+.select-text h1 {
+    font-size: 56px;
+    margin-left: 1em;
+}
+
+.battle-button {
+    position: absolute;
+    background: #009038;
+    border: 4px solid black;
+    top: 95%;
+    left: 99%;
+    height: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    transform: translate(-99%, -95%);
+}
+
+.battle-button:hover:enabled {
+    border: 4px solid red;
+}
+
+.battle-button:disabled {
+    background: grey;
+    opacity: 0.5
+}
+
+.battle-button h1 {
+    color: white;
+    filter: drop-shadow(0 0 0.3rem black);
+    font-size: 56px;
+    margin: 0.5em;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Navigate, { useNavigate } from "react-router-dom";
 import * as get from "../../modules/pokemonManager.js";
 import * as fetch from "../../modules/movesManager.js";
 import { SelectCard } from "./SelectCard.js";
@@ -8,6 +9,8 @@ export const CharSelection = () => {
   const [pokemon, setPokemon] = useState([]);
   const [playerPokemon, setPlayerPokemon] = useState();
   const [enemyPokemon, setEnemyPokemon] = useState();
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  const navigate = useNavigate();
 
   const getPokemon = () => {
     return get.allPokemon().then((pokemon) => {
@@ -15,6 +18,13 @@ export const CharSelection = () => {
     });
   };
 
+  const buttonCheck = () => {
+    if (playerPokemon && enemyPokemon) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  };
   const handlePokemonClick = (pokemon) => {
     // watching for pokemon click and if it was the one already clicked
 
@@ -28,6 +38,20 @@ export const CharSelection = () => {
   useEffect(() => {
     getPokemon();
   }, []);
+
+  // call buttonCheck everytime state of playerPokemon or enemyPokemon changes.
+  useEffect(() => {
+    buttonCheck();
+  }, [playerPokemon, enemyPokemon]);
+
+  const handlePlayClicked = () => {
+    navigate("/battle", {
+      playerPokemon: playerPokemon,
+      enemyPokemon: enemyPokemon,
+      setPlayerPokemon: setPlayerPokemon,
+      setEnemyPokemon: setEnemyPokemon,
+    });
+  };
 
   return (
     <div className="char-select-page-wrapper">
@@ -44,6 +68,20 @@ export const CharSelection = () => {
           />
         ))}
       </div>
+      <div className="select-text">
+        {playerPokemon && enemyPokemon ? (
+          <h1>Ready To Battle?</h1>
+        ) : (
+          <h1>Choose A Pokemon!</h1>
+        )}
+      </div>
+      <button
+        className="battle-button"
+        onClick={() => handlePlayClicked()}
+        disabled={buttonDisabled}
+      >
+        <h1>Play!</h1>
+      </button>
     </div>
   );
 };
