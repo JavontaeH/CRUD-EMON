@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navigate, { useNavigate } from "react-router-dom";
+import { gsap } from "gsap";
+import { Audio } from "../../audio/Audio.js";
 import * as get from "../../modules/pokemonManager.js";
 import * as fetch from "../../modules/movesManager.js";
 import { SelectCard } from "./SelectCard.js";
@@ -10,6 +12,7 @@ export const CharSelection = () => {
   const [playerPokemon, setPlayerPokemon] = useState();
   const [enemyPokemon, setEnemyPokemon] = useState();
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const screenRef = useRef();
   const navigate = useNavigate();
 
   const getPokemon = () => {
@@ -80,43 +83,55 @@ export const CharSelection = () => {
         });
       })
       .then(() => {
-        setTimeout(initiateBattle, 1000);
+        initiateBattle();
       });
   };
 
   const initiateBattle = () => {
-    navigate("/battle");
+    Audio.battle.play();
+    gsap.to(screenRef.current, {
+      autoAlpha: 1,
+      repeat: 7,
+      yoyo: true,
+      duration: 0.419,
+      onComplete: () => {
+        navigate("/battle");
+      },
+    });
   };
 
   return (
-    <div className="char-select-page-wrapper">
-      <div className="select-pokemon-wrapper">
-        {pokemon.map((pokeman) => (
-          <SelectCard
-            pokemon={pokeman}
-            key={pokeman.id}
-            handlePokemonClick={handlePokemonClick}
-            playerPokemon={playerPokemon}
-            enemyPokemon={enemyPokemon}
-            setPlayerPokemon={setPlayerPokemon}
-            setEnemyPokemon={setEnemyPokemon}
-          />
-        ))}
+    <>
+      <div className="char-select-page-wrapper">
+        <div className="select-pokemon-wrapper">
+          {pokemon.map((pokeman) => (
+            <SelectCard
+              pokemon={pokeman}
+              key={pokeman.id}
+              handlePokemonClick={handlePokemonClick}
+              playerPokemon={playerPokemon}
+              enemyPokemon={enemyPokemon}
+              setPlayerPokemon={setPlayerPokemon}
+              setEnemyPokemon={setEnemyPokemon}
+            />
+          ))}
+        </div>
+        <div className="select-text">
+          {playerPokemon && enemyPokemon ? (
+            <h1>Ready To Battle?</h1>
+          ) : (
+            <h1>Choose A Pokemon!</h1>
+          )}
+        </div>
+        <button
+          className="battle-button"
+          onClick={() => handlePlayClicked()}
+          disabled={buttonDisabled}
+        >
+          <h1>Play!</h1>
+        </button>
+        <div className="transition-overlay" ref={screenRef}></div>
       </div>
-      <div className="select-text">
-        {playerPokemon && enemyPokemon ? (
-          <h1>Ready To Battle?</h1>
-        ) : (
-          <h1>Choose A Pokemon!</h1>
-        )}
-      </div>
-      <button
-        className="battle-button"
-        onClick={() => handlePlayClicked()}
-        disabled={buttonDisabled}
-      >
-        <h1>Play!</h1>
-      </button>
-    </div>
+    </>
   );
 };
