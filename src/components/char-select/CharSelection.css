@@ -126,9 +126,9 @@
     height: 50px;
     width: 75px;
     position: absolute;
-    left: 28%;
-    top: 35%;
-    transform: translate(28%, 35%);
+    left: 36%;
+    top: 55%;
+    transform: translate(-36%, -55%);
 }
 
 .select-text {

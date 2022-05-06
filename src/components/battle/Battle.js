@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Navigate, { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
+import { Audio } from "../../audio/Audio";
 import useDynamicRefs from "use-dynamic-refs";
 import "./Battle.css";
 
@@ -40,6 +41,7 @@ export const Battle = () => {
           x: +60,
           duration: 0.1,
           onComplete: () => {
+            Audio.tackleHit.play();
             // enemy gets hit here
             if (enemyPokemon.hp - attack.damage < 0) {
               gsap.to(enemyHpRef.current, {
@@ -91,12 +93,14 @@ export const Battle = () => {
           x: +25,
           duration: 0.15,
           onComplete: () => {
+            Audio.thunderInit.play();
             gsap
               .timeline()
               .from(getRef("Thunder").current, {
                 y: -250,
                 duration: 0.8,
                 onComplete: () => {
+                  Audio.thunderHit.play();
                   // enemy gets hit here
                   if (enemyPokemon.hp - attack.damage < 0) {
                     gsap.to(enemyHpRef.current, {
@@ -160,6 +164,8 @@ export const Battle = () => {
           y: +30,
           duration: 0.1,
           onComplete: () => {
+            Audio.earthquake.play();
+
             // enemy gets hit here
             if (enemyPokemon.hp - attack.damage < 0) {
               gsap.to(enemyHpRef.current, {
@@ -218,6 +224,7 @@ export const Battle = () => {
           x: +25,
           duration: 0.15,
           onComplete: () => {
+            Audio.fireballInit.play();
             gsap
               .timeline()
               .from(getRef("Fire Blast").current, {
@@ -225,6 +232,7 @@ export const Battle = () => {
                 x: -700,
                 duration: 0.8,
                 onComplete: () => {
+                  Audio.fireballHit.play();
                   // enemy gets hit here
                   if (enemyPokemon.hp - attack.damage < 0) {
                     gsap.to(enemyHpRef.current, {

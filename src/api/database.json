@@ -33,6 +33,15 @@
       "type": "fire",
       "hp": 100,
       "id": 4
+    },
+    {
+      "userId": 2,
+      "name": "Pikachu",
+      "frontImg": "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif",
+      "backImg": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
+      "type": "electric",
+      "hp": 100,
+      "id": 5
     }
   ],
   "attacks": [
@@ -98,6 +107,26 @@
       "pokemonId": 4,
       "attackId": 3,
       "id": 15
+    },
+    {
+      "pokemonId": 5,
+      "attackId": 1,
+      "id": 16
+    },
+    {
+      "pokemonId": 5,
+      "attackId": 2,
+      "id": 17
+    },
+    {
+      "pokemonId": 5,
+      "attackId": 0,
+      "id": 18
+    },
+    {
+      "pokemonId": 5,
+      "attackId": 0,
+      "id": 19
     }
   ]
 }

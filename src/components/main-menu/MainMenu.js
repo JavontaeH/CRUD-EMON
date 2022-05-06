@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Audio } from "../../audio/Audio";
 import Navigate, { useNavigate } from "react-router-dom";
 import "./MainMenu.css";
 
@@ -9,6 +10,10 @@ export const MainMenu = ({ isAuthenticated, clearUser }) => {
     clearUser();
     navigate("/");
   };
+
+  useEffect(() => {
+    Audio.battle.stop();
+  }, []);
 
   // ternary shows diff buttons if not logged in
   if (isAuthenticated) {
