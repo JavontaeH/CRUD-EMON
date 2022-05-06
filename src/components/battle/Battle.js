@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
-
+import Navigate, { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import useDynamicRefs from "use-dynamic-refs";
 import "./Battle.css";
 
 export const Battle = () => {
+  const [playerPokemon, setPlayerPokemon] = useState();
+  const [enemyPokemon, setEnemyPokemon] = useState();
   const [attackType, setAttackType] = useState("Attack Type");
   const [dialogueQueue, setDialogueQueue] = useState();
   const [getRef, setRef] = useDynamicRefs();
@@ -13,8 +15,7 @@ export const Battle = () => {
   const enemyHpRef = useRef();
   const playerHpRef = useRef();
   const battleScreenRef = useRef();
-  const [playerPokemon, setPlayerPokemon] = useState();
-  const [enemyPokemon, setEnemyPokemon] = useState();
+  const navigate = useNavigate();
 
   const getDataFromStorage = (dataKey) => {
     //use JSON.parse()
@@ -66,6 +67,13 @@ export const Battle = () => {
               repeat: 5,
               yoyo: true,
               duration: 0.08,
+              onComplete: () => {
+                if (enemyPokemon.hp <= 0) {
+                  gsap.to(enemyPokemonRef.current, {
+                    autoAlpha: 0,
+                  });
+                }
+              },
             });
           },
         })
@@ -186,6 +194,13 @@ export const Battle = () => {
               repeat: 5,
               yoyo: true,
               duration: 0.08,
+              onComplete: () => {
+                if (enemyPokemon.hp <= 0) {
+                  gsap.to(enemyPokemonRef.current, {
+                    autoAlpha: 0,
+                  });
+                }
+              },
             });
           },
         })
@@ -237,6 +252,13 @@ export const Battle = () => {
                     repeat: 5,
                     yoyo: true,
                     duration: 0.08,
+                    onComplete: () => {
+                      if (enemyPokemon.hp <= 0) {
+                        gsap.to(enemyPokemonRef.current, {
+                          autoAlpha: 0,
+                        });
+                      }
+                    },
                   });
                 },
               })
@@ -263,6 +285,12 @@ export const Battle = () => {
     setDialogueQueue();
   };
 
+  // navigate to home page callback function
+
+  const navHome = () => {
+    navigate("/");
+  };
+
   // swaps pokemon around and clears dialogue queue
   const turnSwap = () => {
     if (enemyPokemon.hp > 0) {
@@ -282,6 +310,7 @@ export const Battle = () => {
       setDialogueQueue(
         `${enemyPokemon.name} Has Fainted, ${playerPokemon.name} Wins! `
       );
+      setTimeout(navHome, 2500);
     }
   };
 

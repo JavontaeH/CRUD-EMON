@@ -37,6 +37,8 @@ export const CharSelection = () => {
 
   useEffect(() => {
     getPokemon();
+    sessionStorage.removeItem("playerPokemon");
+    sessionStorage.removeItem("enemyPokemon");
   }, []);
 
   // call buttonCheck everytime state of playerPokemon or enemyPokemon changes.
