@@ -115,6 +115,13 @@ export const Battle = () => {
                     repeat: 5,
                     yoyo: true,
                     duration: 0.08,
+                    onComplete: () => {
+                      if (enemyPokemon.hp <= 0) {
+                        gsap.to(enemyPokemonRef.current, {
+                          autoAlpha: 0,
+                        });
+                      }
+                    },
                   });
                 },
               })
@@ -258,18 +265,24 @@ export const Battle = () => {
 
   // swaps pokemon around and clears dialogue queue
   const turnSwap = () => {
-    setDialogueQueue(`What Will ${enemyPokemon.name} Do?`);
-    setPlayerPokemon(enemyPokemon);
-    setEnemyPokemon(playerPokemon);
-    gsap.to(enemyHpRef.current, {
-      width: playerPokemon.hp + "%",
-      duration: 0,
-    });
-    gsap.to(playerHpRef.current, {
-      width: enemyPokemon.hp + "%",
-      duration: 0,
-    });
-    setTimeout(clearDialogue, 1500);
+    if (enemyPokemon.hp > 0) {
+      setDialogueQueue(`What Will ${enemyPokemon.name} Do?`);
+      setPlayerPokemon(enemyPokemon);
+      setEnemyPokemon(playerPokemon);
+      gsap.to(enemyHpRef.current, {
+        width: playerPokemon.hp + "%",
+        duration: 0,
+      });
+      gsap.to(playerHpRef.current, {
+        width: enemyPokemon.hp + "%",
+        duration: 0,
+      });
+      setTimeout(clearDialogue, 1500);
+    } else {
+      setDialogueQueue(
+        `${enemyPokemon.name} Has Fainted, ${playerPokemon.name} Wins! `
+      );
+    }
   };
 
   // event handler for clicking pokemon attack
