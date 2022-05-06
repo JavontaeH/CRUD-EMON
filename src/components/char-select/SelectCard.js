@@ -25,7 +25,11 @@ export const SelectCard = ({
       >
         <div className="select-card-wrapper">
           <div className="pokemon-card-content">
-            <img className="select-pkmn-image" src={pokemon.frontImg} />
+            <img
+              className="select-pkmn-image"
+              src={pokemon.frontImg}
+              alt={pokemon.name + "-front-image"}
+            />
             <h1>{pokemon.name}</h1>
           </div>
           <img
@@ -45,7 +49,11 @@ export const SelectCard = ({
       >
         <div className="select-card-wrapper">
           <div className="pokemon-card-content">
-            <img className="select-pkmn-image" src={pokemon.frontImg} />
+            <img
+              className="select-pkmn-image"
+              src={pokemon.frontImg}
+              alt={pokemon.name + "-front-image"}
+            />
             <h1>{pokemon.name}</h1>
           </div>
           <img
@@ -65,7 +73,11 @@ export const SelectCard = ({
       >
         <div className="select-card-wrapper">
           <div className="pokemon-card-content">
-            <img className="select-pkmn-image" src={pokemon.frontImg} />
+            <img
+              className="select-pkmn-image"
+              src={pokemon.frontImg}
+              alt={pokemon.name + "-front-image"}
+            />
             <h1>{pokemon.name}</h1>
           </div>
           <img
@@ -86,7 +98,11 @@ export const SelectCard = ({
       >
         <div className="select-card-wrapper">
           <div className="pokemon-card-content">
-            <img className="select-pkmn-image" src={pokemon.frontImg} />
+            <img
+              className="select-pkmn-image"
+              src={pokemon.frontImg}
+              alt={pokemon.name + "-front-image"}
+            />
             <h1>{pokemon.name}</h1>
           </div>
           <img

@@ -75,7 +75,7 @@ export const EditPokemonPopup = (props) => {
   const handleEditPokemon = () => {
     const uniqueValues = new Set(pokemonAttacks.map((v) => v.attackId));
     let filteredPokemonAttacks = pokemonAttacks.filter(function (el) {
-      return el.attackId != 0;
+      return el.attackId !== 0;
     });
 
     if (filteredPokemonAttacks.length <= 0) {
