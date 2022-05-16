@@ -9,7 +9,7 @@ export const Audio = {
   battle: new Howl({
     src: "/audio/hgss-kanto-trainer.mp3",
     html5: true,
-    volume: 0.05,
+    volume: 0.03,
     loop: true,
   }),
   tackleHit: new Howl({
@@ -40,6 +40,6 @@ export const Audio = {
   earthquake: new Howl({
     src: "/audio/earthquake.mp3",
     html5: true,
-    volume: 0.2,
+    volume: 0.1,
   }),
 };

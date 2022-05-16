@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# CRUD-EMON
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+CRUD-EMON is a react app where users can create, read, update, and delete Pokemon and then actually battle with the pokemon that they created!
 
-In the project directory, you can run:
+### Additional Info
 
-### `npm start`
+CRUD-EMON is a React app that I created for my front-end capstone project at NSS, I believe it encapsulates everything I've learned over the 3 month period and my ability to learn outside of the course requirements. It is a relatively simple tech stack using only React/CSS with almost no library usage outside of the animation (gsap) and sound (howler) engines. The goal for this project was to create a CRUD app using React, but I wanted to take it a step farther by allowing users to do something cool with what they created. So I ended up with this Pokemon app that allows users to create pokemon and then battle with them, the actual game itself is more of a demo as there could be more features added, i.e. type advantage and more pokemon stats, but I'm proud of this version as it stands.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Creating Pokemon
 
-### `npm test`
+![Battling Pokemon Demo](/demos/pokemon-create-demo.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Playing With Pokemon
 
-### `npm run build`
+![Battling Pokemon Demo](/demos/pokemon-battle-demo.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React, JSON, NPM/Yarn.
 
-### `npm run eject`
+### Installing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `git clone` the project into your wanted directory.
+- `npm install --legacy-peer-deps` to install all needed React hooks and libraries.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Executing program
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Terminal Commands Below!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+cd *your project directory*/src/api
 
-## Learn More
+json-server -p 8088 database.json
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*** on a seperate terminal window ***
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+cd *your project directory*
 
-### Code Splitting
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[@JavontaeH](https://github.com/JavontaeH)
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
 
-### Advanced Configuration
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Inspiration, code snippets, etc.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [awesome-readme](https://github.com/matiassingers/awesome-readme)
+- [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+- [dbader](https://github.com/dbader/readme-template)
+- [zenorocha](https://gist.github.com/zenorocha/4526327)
+- [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
