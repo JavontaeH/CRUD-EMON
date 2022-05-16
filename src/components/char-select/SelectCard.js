@@ -30,13 +30,15 @@ export const SelectCard = ({
               src={pokemon.frontImg}
               alt={pokemon.name + "-front-image"}
             />
-            <h1>{pokemon.name}</h1>
+            <div className="pokemon-name-type-container">
+              <h1>{pokemon.name}</h1>
+              <img
+                className="select-pkmn-type"
+                src={`images/pokemon/types/${pokemon.type}.png`}
+                alt={pokemon.type}
+              />
+            </div>
           </div>
-          <img
-            className="select-pkmn-type"
-            src={`images/pokemon/types/${pokemon.type}.png`}
-            alt={pokemon.type}
-          />
         </div>
       </div>
     );
@@ -54,13 +56,15 @@ export const SelectCard = ({
               src={pokemon.frontImg}
               alt={pokemon.name + "-front-image"}
             />
-            <h1>{pokemon.name}</h1>
+            <div className="pokemon-name-type-container">
+              <h1>{pokemon.name}</h1>
+              <img
+                className="select-pkmn-type"
+                src={`images/pokemon/types/${pokemon.type}.png`}
+                alt={pokemon.type}
+              />
+            </div>
           </div>
-          <img
-            className="select-pkmn-type"
-            src={`images/pokemon/types/${pokemon.type}.png`}
-            alt={pokemon.type}
-          />
         </div>
       </div>
     );
@@ -78,38 +82,15 @@ export const SelectCard = ({
               src={pokemon.frontImg}
               alt={pokemon.name + "-front-image"}
             />
-            <h1>{pokemon.name}</h1>
+            <div className="pokemon-name-type-container">
+              <h1>{pokemon.name}</h1>
+              <img
+                className="select-pkmn-type"
+                src={`images/pokemon/types/${pokemon.type}.png`}
+                alt={pokemon.type}
+              />
+            </div>
           </div>
-          <img
-            className="select-pkmn-type"
-            src={`images/pokemon/types/${pokemon.type}.png`}
-            alt={pokemon.type}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  if (pokemon === enemyPokemon && pokemon === playerPokemon) {
-    return (
-      <div
-        className="both-pokemon-card-container"
-        onClick={() => handleBothClick()}
-      >
-        <div className="select-card-wrapper">
-          <div className="pokemon-card-content">
-            <img
-              className="select-pkmn-image"
-              src={pokemon.frontImg}
-              alt={pokemon.name + "-front-image"}
-            />
-            <h1>{pokemon.name}</h1>
-          </div>
-          <img
-            className="select-pkmn-type"
-            src={`images/pokemon/types/${pokemon.type}.png`}
-            alt={pokemon.type}
-          />
         </div>
       </div>
     );

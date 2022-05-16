@@ -126,10 +126,7 @@
 .select-pkmn-type {
     height: 50px;
     width: 75px;
-    position: absolute;
-    left: 39%;
-    top: 65%;
-    transform: translate(-39%, -55%);
+    margin-left: 1em;
 }
 
 .select-text {

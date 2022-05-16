@@ -41,8 +41,10 @@ export const Box = ({ isAuthenticated }) => {
             attackId: attack.attackId,
           };
           createPromArr.push(addAnAttack(pokemonAttacksObj));
-          return Promise.all(createPromArr);
         });
+      })
+      .then(() => {
+        return Promise.all(createPromArr);
       })
       .then(() => get.allPokemon().then(setPokemon));
   };
