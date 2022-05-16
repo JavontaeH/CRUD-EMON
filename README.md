@@ -46,10 +46,6 @@ npm start
 
 ```
 
-## Author
-
-[@JavontaeH](https://github.com/JavontaeH)
-
 ## License
 
 I do not claim to own any of the assets used in this website, many of them are owned and trademarked Nintendo, and this was designed purely for educational purposes.
@@ -67,3 +63,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - [Chris Courses (Inspiration/Source)](https://github.com/chriscourses)
 - [Pokemon Showdown (Inspiration/Source)](https://pokemonshowdown.com/)
 - [PixelBoy (Assets)](https://pixel-boy.itch.io/ninja-adventure-asset-pack)
+
+## Author
+
+[@JavontaeH](https://github.com/JavontaeH)
