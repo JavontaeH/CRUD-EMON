@@ -31,7 +31,7 @@ export const Box = ({ isAuthenticated }) => {
   };
 
   const createPokemon = (pokemon, pokemonAttacks) => {
-    console.log(pokemonAttacks);
+    let createPromArr = [];
     get
       .addPokemon(pokemon)
       .then((res) => {
@@ -40,7 +40,8 @@ export const Box = ({ isAuthenticated }) => {
             pokemonId: res.id,
             attackId: attack.attackId,
           };
-          addAnAttack(pokemonAttacksObj);
+          createPromArr.push(addAnAttack(pokemonAttacksObj));
+          return Promise.all(createPromArr);
         });
       })
       .then(() => get.allPokemon().then(setPokemon));
@@ -119,7 +120,7 @@ export const Box = ({ isAuthenticated }) => {
   const handleCreatePokemon = (pokemon, pokemonAttacks) => {
     const uniqueValues = new Set(pokemonAttacks.map((v) => v.attackId));
     let filteredPokemonAttacks = pokemonAttacks.filter(function (el) {
-      return el.attackId != 0;
+      return el.attackId !== 0;
     });
     if (filteredPokemonAttacks.length <= 0) {
       alert("You must choose at least one attack.");

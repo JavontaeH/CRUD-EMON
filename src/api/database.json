@@ -122,16 +122,6 @@
       "pokemonId": 5,
       "attackId": 2,
       "id": 17
-    },
-    {
-      "pokemonId": 5,
-      "attackId": 0,
-      "id": 18
-    },
-    {
-      "pokemonId": 5,
-      "attackId": 0,
-      "id": 19
     }
   ]
 }
