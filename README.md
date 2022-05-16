@@ -52,14 +52,18 @@ npm start
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+I do not claim to own any of the assets used in this website, many of them are owned and trademarked Nintendo, and this was designed purely for educational purposes.
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-
-- [awesome-readme](https://github.com/matiassingers/awesome-readme)
-- [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-- [dbader](https://github.com/dbader/readme-template)
-- [zenorocha](https://gist.github.com/zenorocha/4526327)
-- [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+- [Brenda Long (Teacher)](https://www.linkedin.com/in/brenda-long/)
+- [Dakota Lambert (Teacher)](https://www.linkedin.com/in/dakotashaynelambert/)
+- [Kipp Minton (Teacher)](https://www.linkedin.com/in/luciankippminton/)
+- [Ross Stovenour (Teacher)](https://www.linkedin.com/in/ross-stovenour/)
+- [Eric Biershenk (Peer/Advice)](https://www.linkedin.com/in/eric-bierschenk-b38ab71b3/)
+- [Ben Watts (Peer/Advice)](https://www.linkedin.com/in/ben-watts9/)
+- [Chris Courses (Inspiration/Source)](https://github.com/chriscourses)
+- [Pokemon Showdown (Inspiration/Source)](https://pokemonshowdown.com/)
+- [PixelBoy (Assets)](https://pixel-boy.itch.io/ninja-adventure-asset-pack)
