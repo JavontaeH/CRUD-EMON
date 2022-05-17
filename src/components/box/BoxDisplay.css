@@ -90,6 +90,7 @@
 .pokemon-card-wrapper img {
     width: 80%;
     height: 80%;
+    align-self: center;
 }
 
 .pokemon-card-wrapper:hover {
